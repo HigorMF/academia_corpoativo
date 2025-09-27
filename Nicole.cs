@@ -8,5 +8,6 @@ namespace academia_corpoativo
 {
     class Nicole
     {
+
     }
 }
