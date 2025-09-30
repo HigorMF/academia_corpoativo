@@ -54,14 +54,14 @@
             // cadastroToolStripMenuItem
             // 
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            cadastroToolStripMenuItem.Size = new Size(180, 22);
+            cadastroToolStripMenuItem.Size = new Size(121, 22);
             cadastroToolStripMenuItem.Text = "Cadastro";
             cadastroToolStripMenuItem.Click += cadastroToolStripMenuItem_Click;
             // 
             // loginToolStripMenuItem
             // 
             loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            loginToolStripMenuItem.Size = new Size(180, 22);
+            loginToolStripMenuItem.Size = new Size(121, 22);
             loginToolStripMenuItem.Text = "Login";
             loginToolStripMenuItem.Click += loginToolStripMenuItem_Click;
             // 
@@ -70,7 +70,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            BackgroundImage = Properties.Resources.Image__1_;
+            BackgroundImage = Properties.Resources.Image;
             ClientSize = new Size(800, 450);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
