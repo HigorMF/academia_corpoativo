@@ -11,7 +11,7 @@ namespace academia_corpoativo
     public class Conexao
     {
         private static string connString =
-            "server=10.37.44.29;user id=root;password=root;database=academia";
+            "server=10.37.44.29;user id=root;password=root;database=corpo_ativo";
         public MySqlConnection GetConnection()
         {
             return new MySqlConnection(connString);

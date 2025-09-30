@@ -19,12 +19,15 @@ namespace academia_corpoativo
 
         private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EscolhaCadastro tela = new EscolhaCadastro();
+            tela.MdiParent = this;
+            tela.Show();
+            
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
