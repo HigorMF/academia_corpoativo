@@ -31,8 +31,19 @@ namespace academia_corpoativo
             {
                 var email = txtUsuario.Text;
                 var senha = txtSenha.Text;
-            string comando =
-                    "SELECT * FROM cadastro WHERE email = @email AND senha = @senha  "
+                string comando =
+                        "SELECT * FROM cadastro WHERE email = @email AND senha = @senha ";
+                using (var cmd = new MySqlCommand(comando, conn))
+                {
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+
+                    conn.Open();
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+                }
             }
         }
 
