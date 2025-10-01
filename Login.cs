@@ -26,7 +26,14 @@ namespace academia_corpoativo
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-
+            Conexao conexao = new Conexao();
+            using(var conn = conexao.GetConnection())
+            {
+                var usurio = txtUsuario.Text;
+                var senha = txtSenha.Text;
+            string comando =
+                    
+            }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
