@@ -8,12 +8,12 @@ namespace academia_corpoativo
 {
     public class Usuarios
     {
-        public string Usuario { get; set;}
+        public string Email { get; set;}
         public string Senha { get; set; }
 
-        public Usuarios (string usuario, string senha)
+        public Usuarios (string email, string senha)
         {
-            Usuario = usuario;
+            Email = email;
             Senha = senha;
         }
     }

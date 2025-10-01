@@ -29,10 +29,10 @@ namespace academia_corpoativo
             Conexao conexao = new Conexao();
             using(var conn = conexao.GetConnection())
             {
-                var usurio = txtUsuario.Text;
+                var email = txtUsuario.Text;
                 var senha = txtSenha.Text;
             string comando =
-                    
+                    "SELECT * FROM cadastro WHERE email = @email AND senha = @senha  "
             }
         }
 
