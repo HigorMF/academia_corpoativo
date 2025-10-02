@@ -22,12 +22,17 @@ namespace academia_corpoativo
             EscolhaCadastro tela = new EscolhaCadastro();
             tela.MdiParent = this;
             tela.Show();
-            
+
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void Tela_Inicial_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
