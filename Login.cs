@@ -32,7 +32,7 @@ namespace academia_corpoativo
                 var email = txtUsuario.Text;
                 var senha = txtSenha.Text;
                 string comando =
-                        "SELECT * FROM cadastro WHERE email = @email AND senha = @senha ";
+                        "SELECT * FROM cadastro_login WHERE email = @email AND senha = @senha ";
                 using (var cmd = new MySqlCommand(comando, conn))
                 {
                     cmd.Parameters.AddWithValue("@email", email);
@@ -42,7 +42,46 @@ namespace academia_corpoativo
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
 
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string tipoUsuario = reader["tipo_login"].ToString();
 
+                            switch (tipoUsuario.ToLower())
+                            {
+                                case "aluno":
+                                    MessageBox.Show("Login de aluno realizado!");
+                                    Aluno formAluno = new Aluno();
+                                    formAluno.Show();
+                                    this.Hide();
+                                    break;
+
+                                case "professor":
+                                    MessageBox.Show("Login de professor realizado!");
+                                    Professor formProfessor = new Professor();
+                                    formProfessor.Show();
+                                    this.Hide();
+                                    break;
+
+                                case "recepcionista":
+                                    MessageBox.Show("Login de recepcionista realizado!");
+                                    Recepcionista formRecepcionista = new Recepcionista();
+                                    formRecepcionista.Show();
+                                    this.Hide();
+                                    break;
+
+                                default:
+                                    MessageBox.Show("Tipo de usuário não reconhecido!");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Email ou senha incorretos!");
+                        }
+
+                    }
                 }
             }
         }
