@@ -44,6 +44,8 @@
             label6 = new Label();
             txtEmailAtual = new TextBox();
             pictureBox3 = new PictureBox();
+            checkNovaSenha = new CheckBox();
+            checkConfirmarNovaSenha = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -83,6 +85,7 @@
             txtNovaSenha.Name = "txtNovaSenha";
             txtNovaSenha.Size = new Size(311, 23);
             txtNovaSenha.TabIndex = 3;
+            txtNovaSenha.TextChanged += txtNovaSenha_TextChanged;
             // 
             // txtConfirmacaoNovaSenha
             // 
@@ -90,6 +93,7 @@
             txtConfirmacaoNovaSenha.Name = "txtConfirmacaoNovaSenha";
             txtConfirmacaoNovaSenha.Size = new Size(311, 23);
             txtConfirmacaoNovaSenha.TabIndex = 4;
+            txtConfirmacaoNovaSenha.TextChanged += txtConfirmacaoNovaSenha_TextChanged;
             // 
             // button1
             // 
@@ -178,11 +182,33 @@
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
             // 
+            // checkNovaSenha
+            // 
+            checkNovaSenha.AutoSize = true;
+            checkNovaSenha.Location = new Point(769, 413);
+            checkNovaSenha.Name = "checkNovaSenha";
+            checkNovaSenha.Size = new Size(15, 14);
+            checkNovaSenha.TabIndex = 15;
+            checkNovaSenha.UseVisualStyleBackColor = true;
+            checkNovaSenha.CheckedChanged += checkNovaSenha_CheckedChanged;
+            // 
+            // checkConfirmarNovaSenha
+            // 
+            checkConfirmarNovaSenha.AutoSize = true;
+            checkConfirmarNovaSenha.Location = new Point(770, 485);
+            checkConfirmarNovaSenha.Name = "checkConfirmarNovaSenha";
+            checkConfirmarNovaSenha.Size = new Size(15, 14);
+            checkConfirmarNovaSenha.TabIndex = 16;
+            checkConfirmarNovaSenha.UseVisualStyleBackColor = true;
+            checkConfirmarNovaSenha.CheckedChanged += checkConfirmarNovaSenha_CheckedChanged;
+            // 
             // RecuperarSenha
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(839, 663);
+            Controls.Add(checkConfirmarNovaSenha);
+            Controls.Add(checkNovaSenha);
             Controls.Add(pictureBox3);
             Controls.Add(label6);
             Controls.Add(txtEmailAtual);
@@ -224,5 +250,7 @@
         private Label label6;
         private TextBox txtEmailAtual;
         private PictureBox pictureBox3;
+        private CheckBox checkNovaSenha;
+        private CheckBox checkConfirmarNovaSenha;
     }
 }

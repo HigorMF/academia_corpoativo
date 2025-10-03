@@ -102,14 +102,40 @@ namespace academia_corpoativo
                     if (linhasAfetadas > 0)
                     {
                         MessageBox.Show("Senha redefinida com sucesso!");
-                        this.Close(); 
+                        this.Close();
                     }
                     else
                     {
                         MessageBox.Show("E-mail não encontrado.");
                     }
+
+
+
                 }
             }
         }
+
+        private void checkNovaSenha_CheckedChanged(object sender, EventArgs e)
+        {
+            txtNovaSenha.UseSystemPasswordChar = !checkNovaSenha.Checked;
+
+        }
+
+        private void txtNovaSenha_TextChanged(object sender, EventArgs e)
+        {
+            txtNovaSenha.UseSystemPasswordChar = true;
+        }
+
+        private void txtConfirmacaoNovaSenha_TextChanged(object sender, EventArgs e)
+        {
+            txtConfirmacaoNovaSenha.UseSystemPasswordChar = true;
+        }
+        
+
+        private void checkConfirmarNovaSenha_CheckedChanged(object sender, EventArgs e)
+        {
+            txtConfirmacaoNovaSenha.UseSystemPasswordChar = !checkConfirmarNovaSenha.Checked;
+        }
+    
     }
 }
