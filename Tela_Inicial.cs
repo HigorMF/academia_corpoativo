@@ -27,7 +27,9 @@ namespace academia_corpoativo
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Login tela = new Login();
+            tela.MdiParent = this;
+            tela.Show();
         }
 
         private void Tela_Inicial_Load(object sender, EventArgs e)
