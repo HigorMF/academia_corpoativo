@@ -39,6 +39,9 @@
             txtTelefone = new MaskedTextBox();
             txtSenha = new TextBox();
             btoCadastrar = new Button();
+            cboTipoPlano = new ComboBox();
+            label6 = new Label();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -83,7 +86,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(472, 155);
+            label5.Location = new Point(472, 101);
             label5.Name = "label5";
             label5.Size = new Size(53, 19);
             label5.TabIndex = 4;
@@ -121,7 +124,7 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(566, 155);
+            txtSenha.Location = new Point(566, 101);
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(100, 25);
             txtSenha.TabIndex = 10;
@@ -136,11 +139,41 @@
             btoCadastrar.UseVisualStyleBackColor = true;
             btoCadastrar.Click += btoCadastrar_Click;
             // 
-            // Cadastro
+            // cboTipoPlano
+            // 
+            cboTipoPlano.FormattingEnabled = true;
+            cboTipoPlano.Items.AddRange(new object[] { "Ouro (Plano anual)", "Prata (Plano anual)", "Bronze (Plano mensal)" });
+            cboTipoPlano.Location = new Point(566, 165);
+            cboTipoPlano.Name = "cboTipoPlano";
+            cboTipoPlano.Size = new Size(121, 25);
+            cboTipoPlano.TabIndex = 13;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(439, 230);
+            label6.Name = "label6";
+            label6.Size = new Size(112, 19);
+            label6.TabIndex = 14;
+            label6.Text = "Valor do Plano:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(439, 168);
+            label7.Name = "label7";
+            label7.Size = new Size(107, 19);
+            label7.TabIndex = 15;
+            label7.Text = "Tipo do Plano:";
+            // 
+            // CadastroAluno
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(899, 510);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(cboTipoPlano);
             Controls.Add(btoCadastrar);
             Controls.Add(txtSenha);
             Controls.Add(txtTelefone);
@@ -153,7 +186,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            Name = "Cadastro";
+            Name = "CadastroAluno";
             Text = "Cadastro";
             ResumeLayout(false);
             PerformLayout();
@@ -172,5 +205,8 @@
         private MaskedTextBox txtTelefone;
         private TextBox txtSenha;
         private Button btoCadastrar;
+        private ComboBox cboTipoPlano;
+        private Label label6;
+        private Label label7;
     }
 }

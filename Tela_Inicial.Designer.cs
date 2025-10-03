@@ -32,7 +32,6 @@
             menuToolStripMenuItem = new ToolStripMenuItem();
             cadastroToolStripMenuItem = new ToolStripMenuItem();
             loginToolStripMenuItem = new ToolStripMenuItem();
-            menuToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,7 +46,7 @@
             // 
             // menuToolStripMenuItem
             // 
-            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, loginToolStripMenuItem, menuToolStripMenuItem1 });
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, loginToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             menuToolStripMenuItem.Size = new Size(50, 20);
             menuToolStripMenuItem.Text = "Menu";
@@ -65,12 +64,6 @@
             loginToolStripMenuItem.Size = new Size(180, 22);
             loginToolStripMenuItem.Text = "Login";
             loginToolStripMenuItem.Click += loginToolStripMenuItem_Click;
-            // 
-            // menuToolStripMenuItem1
-            // 
-            menuToolStripMenuItem1.Name = "menuToolStripMenuItem1";
-            menuToolStripMenuItem1.Size = new Size(180, 22);
-            menuToolStripMenuItem1.Text = "Menu";
             // 
             // Tela_Inicial
             // 
@@ -96,6 +89,5 @@
         private ToolStripMenuItem menuToolStripMenuItem;
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem loginToolStripMenuItem;
-        private ToolStripMenuItem menuToolStripMenuItem1;
     }
 }
