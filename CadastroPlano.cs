@@ -28,6 +28,17 @@ namespace academia_corpoativo
                 var data_inicio = mtbDataInicio.Text;
                 var data_fim = mtbDataFim.Text;
 
+                string Sql = "INSERT INTO planos (tipo, valor, data_inicio, data_fim); VALUES(@tipo, @valor, @data, @data_inicio, @data_fim)";
+                using (var cmd = new MySqlCommand(Sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@tipo", tipo);
+                    cmd.Parameters.AddWithValue("@valor", valor);
+                    cmd.Parameters.AddWithValue("@data_inicio", data_inicio);
+                    cmd.Parameters.AddWithValue("data_fim", data_fim);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Plano cadastrado com sucesso!");                        }
             }
         }
     }

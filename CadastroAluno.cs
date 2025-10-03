@@ -84,5 +84,10 @@ namespace academia_corpoativo
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtNomeCompleto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

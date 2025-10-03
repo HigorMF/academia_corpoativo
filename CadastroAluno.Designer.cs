@@ -95,6 +95,7 @@
             txtNomeCompleto.Name = "txtNomeCompleto";
             txtNomeCompleto.Size = new Size(139, 25);
             txtNomeCompleto.TabIndex = 6;
+            txtNomeCompleto.TextChanged += txtNomeCompleto_TextChanged;
             // 
             // txtEmail
             // 
@@ -136,7 +137,7 @@
             btoCadastrar.UseVisualStyleBackColor = true;
             btoCadastrar.Click += btoCadastrar_Click;
             // 
-            // Cadastro
+            // CadastroAluno
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -153,7 +154,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            Name = "Cadastro";
+            Name = "CadastroAluno";
             Text = "Cadastro";
             ResumeLayout(false);
             PerformLayout();
