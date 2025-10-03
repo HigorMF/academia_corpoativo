@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using MySql.Data.MySqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace academia_corpoativo
 {
@@ -27,7 +28,7 @@ namespace academia_corpoativo
         private void btn_login_Click(object sender, EventArgs e)
         {
             Conexao conexao = new Conexao();
-            using(var conn = conexao.GetConnection())
+            using (var conn = conexao.GetConnection())
             {
                 var email = txtUsuario.Text;
                 var senha = txtSenha.Text;
@@ -89,6 +90,22 @@ namespace academia_corpoativo
         private void pictureBox4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkSenha_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSenha.UseSystemPasswordChar = !checkSenha.Checked;
+        }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+            txtSenha.UseSystemPasswordChar = true;
+        }
+
+        private void linkReseteSenhaLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RecuperarSenha formRecuperar = new RecuperarSenha();
+            formRecuperar.ShowDialog();
         }
     }
 }

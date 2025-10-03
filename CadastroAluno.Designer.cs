@@ -39,6 +39,9 @@
             txtTelefone = new MaskedTextBox();
             txtSenha = new TextBox();
             btoCadastrar = new Button();
+            cboTipoPlano = new ComboBox();
+            label6 = new Label();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -83,7 +86,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(472, 155);
+            label5.Location = new Point(472, 101);
             label5.Name = "label5";
             label5.Size = new Size(53, 19);
             label5.TabIndex = 4;
@@ -122,7 +125,7 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(566, 155);
+            txtSenha.Location = new Point(566, 101);
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(100, 25);
             txtSenha.TabIndex = 10;
@@ -142,6 +145,9 @@
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(899, 510);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(cboTipoPlano);
             Controls.Add(btoCadastrar);
             Controls.Add(txtSenha);
             Controls.Add(txtTelefone);
@@ -173,5 +179,8 @@
         private MaskedTextBox txtTelefone;
         private TextBox txtSenha;
         private Button btoCadastrar;
+        private ComboBox cboTipoPlano;
+        private Label label6;
+        private Label label7;
     }
 }

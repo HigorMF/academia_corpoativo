@@ -35,6 +35,8 @@
             label2 = new Label();
             btn_login = new Button();
             pictureBox4 = new PictureBox();
+            checkSenha = new CheckBox();
+            linkReseteSenhaLogin = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
@@ -63,6 +65,7 @@
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(282, 23);
             txtSenha.TabIndex = 3;
+            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // label2
             // 
@@ -78,7 +81,7 @@
             // btn_login
             // 
             btn_login.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btn_login.Location = new Point(472, 455);
+            btn_login.Location = new Point(475, 483);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(75, 23);
             btn_login.TabIndex = 4;
@@ -98,18 +101,44 @@
             pictureBox4.TabStop = false;
             pictureBox4.Click += pictureBox4_Click;
             // 
+            // checkSenha
+            // 
+            checkSenha.AutoSize = true;
+            checkSenha.BackColor = Color.Transparent;
+            checkSenha.Location = new Point(651, 404);
+            checkSenha.Name = "checkSenha";
+            checkSenha.Size = new Size(82, 19);
+            checkSenha.TabIndex = 10;
+            checkSenha.Text = "checkBox1";
+            checkSenha.UseVisualStyleBackColor = false;
+            checkSenha.CheckedChanged += checkSenha_CheckedChanged;
+            // 
+            // linkReseteSenhaLogin
+            // 
+            linkReseteSenhaLogin.AutoSize = true;
+            linkReseteSenhaLogin.LinkColor = Color.PaleTurquoise;
+            linkReseteSenhaLogin.Location = new Point(493, 430);
+            linkReseteSenhaLogin.Name = "linkReseteSenhaLogin";
+            linkReseteSenhaLogin.Size = new Size(152, 15);
+            linkReseteSenhaLogin.TabIndex = 11;
+            linkReseteSenhaLogin.TabStop = true;
+            linkReseteSenhaLogin.Text = "Esqueceu a senha ou login?";
+            linkReseteSenhaLogin.LinkClicked += linkReseteSenhaLogin_LinkClicked;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(959, 663);
+            Controls.Add(linkReseteSenhaLogin);
             Controls.Add(pictureBox4);
             Controls.Add(btn_login);
             Controls.Add(txtSenha);
             Controls.Add(label2);
             Controls.Add(txtUsuario);
             Controls.Add(label1);
+            Controls.Add(checkSenha);
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
@@ -126,5 +155,7 @@
         private Label label2;
         private Button btn_login;
         private PictureBox pictureBox4;
+        private CheckBox checkSenha;
+        private LinkLabel linkReseteSenhaLogin;
     }
 }
