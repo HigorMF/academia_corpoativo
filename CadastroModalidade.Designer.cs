@@ -71,6 +71,7 @@
             // 
             // btnOK
             // 
+            btnOK.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnOK.Location = new Point(231, 227);
             btnOK.Name = "btnOK";
             btnOK.Size = new Size(101, 28);

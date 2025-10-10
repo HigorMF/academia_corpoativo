@@ -40,8 +40,6 @@
             txtSenha = new TextBox();
             btoCadastrar = new Button();
             cboTipoPlano = new ComboBox();
-            label6 = new Label();
-            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -140,13 +138,19 @@
             btoCadastrar.UseVisualStyleBackColor = true;
             btoCadastrar.Click += btoCadastrar_Click;
             // 
+            // cboTipoPlano
+            // 
+            cboTipoPlano.Items.AddRange(new object[] { "Ouro (Plano anual)", "Prata (Plano anual)", "Bronze (Plano mensal)" });
+            cboTipoPlano.Location = new Point(566, 192);
+            cboTipoPlano.Name = "cboTipoPlano";
+            cboTipoPlano.Size = new Size(121, 25);
+            cboTipoPlano.TabIndex = 2;
+            // 
             // CadastroAluno
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(899, 510);
-            Controls.Add(label7);
-            Controls.Add(label6);
             Controls.Add(cboTipoPlano);
             Controls.Add(btoCadastrar);
             Controls.Add(txtSenha);
@@ -180,7 +184,5 @@
         private TextBox txtSenha;
         private Button btoCadastrar;
         private ComboBox cboTipoPlano;
-        private Label label6;
-        private Label label7;
     }
 }

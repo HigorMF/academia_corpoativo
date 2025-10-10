@@ -25,19 +25,25 @@ namespace academia_corpoativo
             var email = txtEmail.Text.Trim();
             var telefone = txtTelefone.Text.Trim();
             var senha = txtSenha.Text.Trim();
-            var planoSelecionado = cboTipoPlano.SelectedItem?.ToString();
+            var planoEscolhido = cboTipoPlano.SelectedItem?.ToString();
 
             // Validações
-            if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(cpf) || string.IsNullOrWhiteSpace(email)
-                || string.IsNullOrWhiteSpace(telefone) || string.IsNullOrWhiteSpace(senha) || string.IsNullOrWhiteSpace(planoSelecionado))
+            if (string.IsNullOrWhiteSpace(nome) ||
+                string.IsNullOrWhiteSpace(cpf) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(telefone) ||
+                string.IsNullOrWhiteSpace(senha) ||
+                string.IsNullOrWhiteSpace(planoEscolhido))
             {
-                MessageBox.Show("⚠️ Todos os campos, incluindo o plano, devem ser preenchidos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("⚠️ Todos os campos devem ser preenchidos (incluindo o plano).",
+                                "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!nome.Contains(" "))
             {
-                MessageBox.Show("⚠️ Digite o nome completo (com sobrenome).", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("⚠️ Digite o nome completo (com sobrenome).",
+                                "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -47,84 +53,108 @@ namespace academia_corpoativo
                 using (var conn = conexao.GetConnection())
                 {
                     conn.Open();
-                    using (var trans = conn.BeginTransaction())
+                    using (var transaction = conn.BeginTransaction())
                     {
-                        // Inserir cadastro_login e obter id retornado
-                        string comandoCadastro = "INSERT INTO cadastro_login (nome, cpf, email, telefone, senha, tipo_login) " +
-                                                 "VALUES (@nome, @cpf, @email, @telefone, @senha, @tipo_login)";
-                        long idCadastroLogin;
-
-                        using (var cmd = new MySqlCommand(comandoCadastro, conn, trans))
+                        try
                         {
-                            cmd.Parameters.AddWithValue("@nome", nome);
-                            cmd.Parameters.AddWithValue("@cpf", cpf);
-                            cmd.Parameters.AddWithValue("@email", email);
-                            cmd.Parameters.AddWithValue("@telefone", telefone);
-                            cmd.Parameters.AddWithValue("@senha", senha);
-                            cmd.Parameters.AddWithValue("@tipo_login", "Alunos");
-                            cmd.ExecuteNonQuery();
-                            idCadastroLogin = cmd.LastInsertedId;
+                            // 1) Inserir usuário
+                            string insertCadastro = @"
+                        INSERT INTO cadastro_login (nome, cpf, email, telefone, senha, tipo_login)
+                        VALUES (@nome, @cpf, @email, @telefone, @senha, @tipo_login);";
+                            using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(insertCadastro, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@nome", nome);
+                                cmd.Parameters.AddWithValue("@cpf", cpf);
+                                cmd.Parameters.AddWithValue("@email", email);
+                                cmd.Parameters.AddWithValue("@telefone", telefone);
+                                cmd.Parameters.AddWithValue("@senha", senha);
+                                cmd.Parameters.AddWithValue("@tipo_login", "Aluno");
+
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // Pegar o ID inserido do cadastro
+                            int idCadastro;
+                            using (var cmdId = new MySql.Data.MySqlClient.MySqlCommand("SELECT LAST_INSERT_ID();", conn, transaction))
+                            {
+                                idCadastro = Convert.ToInt32(cmdId.ExecuteScalar());
+                            }
+
+                            // 2) Buscar template do plano no servidor (não vai atualizar esse template)
+                            string selectPlano = @"
+                        SELECT tipo, valor, data_inicio, data_fim
+                        FROM Plano
+                        WHERE tipo = @tipo AND id_cadastro_login IS NULL
+                        LIMIT 1;";
+
+                            string tipoPlano;
+                            decimal valorPlano;
+                            DateTime modeloInicio, modeloFim;
+
+                            using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(selectPlano, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@tipo", planoEscolhido);
+
+                                using (var reader = cmd.ExecuteReader())
+                                {
+                                    if (!reader.Read())
+                                    {
+                                        transaction.Rollback();
+                                        MessageBox.Show("❌ Nenhum template de plano disponível deste tipo no servidor.",
+                                                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+
+                                    tipoPlano = reader.GetString("tipo");
+                                    valorPlano = reader.GetDecimal("valor");
+                                    modeloInicio = reader.GetDateTime("data_inicio");
+                                    modeloFim = reader.GetDateTime("data_fim");
+                                }
+                            }
+
+                            // 3) Calcular datas com base na duração do template (começa hoje)
+                            TimeSpan duracao = modeloFim - modeloInicio;
+                            DateTime dataInicio = DateTime.Today;
+                            DateTime dataFim = dataInicio.Add(duracao);
+
+                            // 4) Inserir novo plano vinculado ao usuário (novo registro)
+                            string insertPlano = @"
+                        INSERT INTO Plano (id_cadastro_login, tipo, valor, data_inicio, data_fim)
+                        VALUES (@idCadastro, @tipo, @valor, @data_inicio, @data_fim);";
+
+                            using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(insertPlano, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@idCadastro", idCadastro);
+                                cmd.Parameters.AddWithValue("@tipo", tipoPlano);
+                                cmd.Parameters.AddWithValue("@valor", valorPlano);
+                                cmd.Parameters.AddWithValue("@data_inicio", dataInicio);
+                                cmd.Parameters.AddWithValue("@data_fim", dataFim);
+
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                            MessageBox.Show("✅ Cadastro e criação do plano do usuário realizados com sucesso!",
+                                            "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
-                        // Mapear o id do plano escolhido pelo texto selecionado no combobox
-                        int idPlano = 0;
-                        decimal valorPlano = 0;
-                        DateTime dataInicio = DateTime.Now;
-                        DateTime dataFim;
-
-                        switch (planoSelecionado)
+                        catch (Exception exInner)
                         {
-                            case "Ouro(Plano anual)":
-                                idPlano = 6;
-                                valorPlano = 1200.00m; // exemplo, substituir pelo real
-                                dataFim = dataInicio.AddYears(1);
-                                break;
-                            case "Prata(Plano anual)":
-                                idPlano = 7;
-                                valorPlano = 900.00m; // exemplo
-                                dataFim = dataInicio.AddYears(1);
-                                break;
-                            case "Bronze(Plano mensal)":
-                                idPlano = 8;
-                                valorPlano = 100.00m; // exemplo
-                                dataFim = dataInicio.AddMonths(1);
-                                break;
-                            default:
-                                MessageBox.Show("Plano inválido selecionado.", "Erro", 
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
+                            transaction.Rollback();
+                            MessageBox.Show("❌ Erro ao cadastrar: " + exInner.Message, "Erro",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
-                        // Inserir dados na tabela Plano associando ao cadastro
-                        string comandoPlano = "INSERT INTO Plano (id_cadastro_login, tipo, valor, data_inicio, data_fim) " +
-                                              "VALUES (@id_cadastro_login, @tipo, @valor, @data_inicio, @data_fim)";
-
-                        using (var cmdPlano = new MySqlCommand(comandoPlano, conn, trans))
-                        {
-                            cmdPlano.Parameters.AddWithValue("@id_cadastro_login", idCadastroLogin);
-                            cmdPlano.Parameters.AddWithValue("@tipo", planoSelecionado);
-                            cmdPlano.Parameters.AddWithValue("@valor", valorPlano);
-                            cmdPlano.Parameters.AddWithValue("@data_inicio", dataInicio.Date);
-                            cmdPlano.Parameters.AddWithValue("@data_fim", dataFim.Date);
-                            cmdPlano.ExecuteNonQuery();
-                        }
-
-                        trans.Commit();
-
-                        MessageBox.Show("✅ Cadastro e plano realizados com sucesso!", 
-                            "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                MessageBox.Show("❌ Erro no banco de dados: " + 
-                    ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("❌ Erro no banco de dados: " + ex.Message, "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Erro inesperado: " + 
-                    ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("❌ Erro inesperado: " + ex.Message, "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

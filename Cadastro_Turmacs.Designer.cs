@@ -1,6 +1,6 @@
 ﻿namespace academia_corpoativo
 {
-    partial class CadastroPlano
+    partial class Cadastro_Turmacs
     {
         /// <summary>
         /// Required designer variable.
@@ -31,115 +31,94 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
-            txtTipo = new TextBox();
-            txtValor = new TextBox();
+            textHorario = new TextBox();
             mtbDataInicio = new MaskedTextBox();
             mtbDataFim = new MaskedTextBox();
-            btnCadastroPlano = new Button();
+            btnOK = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(60, 73);
+            label1.Location = new Point(68, 99);
             label1.Name = "label1";
-            label1.Size = new Size(34, 15);
+            label1.Size = new Size(52, 15);
             label1.TabIndex = 0;
-            label1.Text = "Tipo:";
+            label1.Text = "Horário:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(60, 139);
+            label2.Location = new Point(68, 176);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(69, 15);
             label2.TabIndex = 1;
-            label2.Text = "Valor:";
+            label2.Text = "Data Início:";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(60, 204);
+            label3.Location = new Point(68, 266);
             label3.Name = "label3";
-            label3.Size = new Size(69, 15);
+            label3.Size = new Size(59, 15);
             label3.TabIndex = 2;
-            label3.Text = "Data Inicio:";
+            label3.Text = "Data Fim:";
             // 
-            // label4
+            // textHorario
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(60, 266);
-            label4.Name = "label4";
-            label4.Size = new Size(59, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Data Fim:";
-            // 
-            // txtTipo
-            // 
-            txtTipo.Location = new Point(116, 70);
-            txtTipo.Name = "txtTipo";
-            txtTipo.Size = new Size(250, 23);
-            txtTipo.TabIndex = 4;
-            // 
-            // txtValor
-            // 
-            txtValor.Location = new Point(116, 136);
-            txtValor.Name = "txtValor";
-            txtValor.Size = new Size(250, 23);
-            txtValor.TabIndex = 5;
+            textHorario.Location = new Point(124, 96);
+            textHorario.Name = "textHorario";
+            textHorario.Size = new Size(135, 23);
+            textHorario.TabIndex = 3;
             // 
             // mtbDataInicio
             // 
-            mtbDataInicio.Location = new Point(132, 201);
+            mtbDataInicio.Location = new Point(140, 173);
             mtbDataInicio.Mask = "00/00/0000";
             mtbDataInicio.Name = "mtbDataInicio";
-            mtbDataInicio.Size = new Size(124, 23);
-            mtbDataInicio.TabIndex = 7;
+            mtbDataInicio.Size = new Size(119, 23);
+            mtbDataInicio.TabIndex = 4;
             mtbDataInicio.TextAlign = HorizontalAlignment.Center;
             mtbDataInicio.ValidatingType = typeof(DateTime);
             // 
             // mtbDataFim
             // 
-            mtbDataFim.Location = new Point(132, 263);
+            mtbDataFim.Location = new Point(131, 263);
             mtbDataFim.Mask = "00/00/0000";
             mtbDataFim.Name = "mtbDataFim";
-            mtbDataFim.Size = new Size(129, 23);
-            mtbDataFim.TabIndex = 8;
+            mtbDataFim.Size = new Size(128, 23);
+            mtbDataFim.TabIndex = 5;
             mtbDataFim.TextAlign = HorizontalAlignment.Center;
             mtbDataFim.ValidatingType = typeof(DateTime);
             // 
-            // btnCadastroPlano
+            // btnOK
             // 
-            btnCadastroPlano.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCadastroPlano.Location = new Point(182, 323);
-            btnCadastroPlano.Name = "btnCadastroPlano";
-            btnCadastroPlano.Size = new Size(110, 36);
-            btnCadastroPlano.TabIndex = 9;
-            btnCadastroPlano.Text = "OK";
-            btnCadastroPlano.UseVisualStyleBackColor = true;
-            btnCadastroPlano.Click += btnCadastroPlano_Click;
+            btnOK.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOK.Location = new Point(150, 342);
+            btnOK.Name = "btnOK";
+            btnOK.Size = new Size(75, 23);
+            btnOK.TabIndex = 6;
+            btnOK.Text = "OK";
+            btnOK.UseVisualStyleBackColor = true;
+            btnOK.Click += btnOK_Click;
             // 
-            // CadastroPlano
+            // Cadastro_Turmacs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnCadastroPlano);
+            ClientSize = new Size(360, 450);
+            Controls.Add(btnOK);
             Controls.Add(mtbDataFim);
             Controls.Add(mtbDataInicio);
-            Controls.Add(txtValor);
-            Controls.Add(txtTipo);
-            Controls.Add(label4);
+            Controls.Add(textHorario);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "CadastroPlano";
-            Text = "CadastroPlano";
+            Name = "Cadastro_Turmacs";
+            Text = "Cadastro_Turmacs";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -149,11 +128,9 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label4;
-        private TextBox txtTipo;
-        private TextBox txtValor;
+        private TextBox textHorario;
         private MaskedTextBox mtbDataInicio;
         private MaskedTextBox mtbDataFim;
-        private Button btnCadastroPlano;
+        private Button btnOK;
     }
 }
