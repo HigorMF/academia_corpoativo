@@ -48,7 +48,7 @@
             lbNome.BackColor = SystemColors.ActiveCaptionText;
             lbNome.Font = new Font("Microsoft Himalaya", 21.75F);
             lbNome.ForeColor = SystemColors.ButtonHighlight;
-            lbNome.Location = new Point(34, 172);
+            lbNome.Location = new Point(34, 183);
             lbNome.Name = "lbNome";
             lbNome.Size = new Size(61, 29);
             lbNome.TabIndex = 2;
@@ -60,7 +60,7 @@
             lbNumeroMatricula.BackColor = SystemColors.ActiveCaptionText;
             lbNumeroMatricula.Font = new Font("Microsoft Himalaya", 21.75F);
             lbNumeroMatricula.ForeColor = SystemColors.ButtonHighlight;
-            lbNumeroMatricula.Location = new Point(34, 219);
+            lbNumeroMatricula.Location = new Point(34, 227);
             lbNumeroMatricula.Name = "lbNumeroMatricula";
             lbNumeroMatricula.Size = new Size(88, 29);
             lbNumeroMatricula.TabIndex = 3;
@@ -70,7 +70,7 @@
             // 
             lbPlano.AutoSize = true;
             lbPlano.Font = new Font("Microsoft Himalaya", 21.75F);
-            lbPlano.Location = new Point(356, 248);
+            lbPlano.Location = new Point(356, 263);
             lbPlano.Name = "lbPlano";
             lbPlano.Size = new Size(121, 29);
             lbPlano.TabIndex = 4;
@@ -107,7 +107,7 @@
             // 
             lstPlanoCliente.FormattingEnabled = true;
             lstPlanoCliente.ItemHeight = 15;
-            lstPlanoCliente.Location = new Point(354, 292);
+            lstPlanoCliente.Location = new Point(356, 295);
             lstPlanoCliente.Name = "lstPlanoCliente";
             lstPlanoCliente.Size = new Size(525, 289);
             lstPlanoCliente.TabIndex = 8;
@@ -127,7 +127,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Himalaya", 21.75F);
-            label2.Location = new Point(356, 100);
+            label2.Location = new Point(356, 115);
             label2.Name = "label2";
             label2.Size = new Size(119, 29);
             label2.TabIndex = 10;
