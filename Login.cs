@@ -32,28 +32,48 @@ namespace academia_corpoativo
             {
                 var email = txtUsuario.Text;
                 var senha = txtSenha.Text;
-                string comando =
-                        "SELECT * FROM cadastro_login WHERE email = @email AND senha = @senha ";
+
+                string comando = @"
+                    SELECT 
+                        c.nome,
+                        c.id_cadastro_login,
+                        m.id_matricula,
+                        p.tipo,
+                        c.tipo_login
+                    FROM cadastro_login AS c
+                    LEFT JOIN matricula AS m ON c.id_cadastro_login = m.id_cadastro_login
+                    LEFT JOIN plano AS p ON m.id_cadastro_login = p.id_cadastro_login
+                    WHERE c.email = @Email AND c.senha = @Senha;";
+
                 using (var cmd = new MySqlCommand(comando, conn))
                 {
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@senha", senha);
+                   
 
                     conn.Open();
 
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    //int count = Convert.ToInt32(cmd.ExecuteScalar());
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
                             string tipoUsuario = reader["tipo_login"].ToString();
-
+                            string id_login = reader["id_cadastro_login"].ToString();
+                            int id_login2 = Convert.ToInt32(id_login);
+                            string matri = reader["id_matricula"].ToString();
+                            string tipoplano = reader["tipo"].ToString();
                             switch (tipoUsuario.ToLower())
                             {
                                 case "aluno":
                                     MessageBox.Show("Login de aluno realizado!");
-                                    Aluno formAluno = new Aluno();
+
+                                    string nome = reader["nome"].ToString();
+
+                                    string plano = "";
+
+                                    Aluno formAluno = new Aluno(nome, matri, tipoplano);
                                     formAluno.Show();
                                     this.Hide();
                                     break;
@@ -82,7 +102,9 @@ namespace academia_corpoativo
                             MessageBox.Show("Email ou senha incorretos!");
                         }
 
+
                     }
+
                 }
             }
         }

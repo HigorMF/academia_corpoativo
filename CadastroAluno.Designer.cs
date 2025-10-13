@@ -46,7 +46,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label1.Location = new Point(70, 101);
+            label1.Location = new Point(35, 70);
             label1.Name = "label1";
             label1.Size = new Size(124, 19);
             label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label2.Location = new Point(110, 165);
+            label2.Location = new Point(35, 168);
             label2.Name = "label2";
             label2.Size = new Size(38, 19);
             label2.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label3.Location = new Point(110, 221);
+            label3.Location = new Point(35, 221);
             label3.Name = "label3";
             label3.Size = new Size(49, 19);
             label3.TabIndex = 2;
@@ -75,7 +75,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(110, 288);
+            label4.Location = new Point(35, 291);
             label4.Name = "label4";
             label4.Size = new Size(70, 19);
             label4.TabIndex = 3;
@@ -84,7 +84,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(472, 101);
+            label5.Location = new Point(35, 124);
             label5.Name = "label5";
             label5.Size = new Size(53, 19);
             label5.TabIndex = 4;
@@ -92,30 +92,30 @@
             // 
             // txtNomeCompleto
             // 
-            txtNomeCompleto.Location = new Point(210, 98);
+            txtNomeCompleto.Location = new Point(165, 70);
             txtNomeCompleto.Name = "txtNomeCompleto";
-            txtNomeCompleto.Size = new Size(139, 25);
+            txtNomeCompleto.Size = new Size(501, 25);
             txtNomeCompleto.TabIndex = 6;
             txtNomeCompleto.TextChanged += txtNomeCompleto_TextChanged;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(210, 215);
+            txtEmail.Location = new Point(94, 221);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(100, 25);
+            txtEmail.Size = new Size(320, 25);
             txtEmail.TabIndex = 7;
             // 
             // txtCPF
             // 
-            txtCPF.Location = new Point(210, 162);
+            txtCPF.Location = new Point(80, 168);
             txtCPF.Mask = "000,000,000-00";
             txtCPF.Name = "txtCPF";
-            txtCPF.Size = new Size(100, 25);
+            txtCPF.Size = new Size(144, 25);
             txtCPF.TabIndex = 8;
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(210, 285);
+            txtTelefone.Location = new Point(124, 288);
             txtTelefone.Mask = "(99) 00000-0000";
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(100, 25);
@@ -123,9 +123,9 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(566, 101);
+            txtSenha.Location = new Point(94, 124);
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(100, 25);
+            txtSenha.Size = new Size(320, 25);
             txtSenha.TabIndex = 10;
             // 
             // btoCadastrar
@@ -141,7 +141,7 @@
             // cboTipoPlano
             // 
             cboTipoPlano.Items.AddRange(new object[] { "Ouro (Plano anual)", "Prata (Plano anual)", "Bronze (Plano mensal)" });
-            cboTipoPlano.Location = new Point(566, 192);
+            cboTipoPlano.Location = new Point(669, 218);
             cboTipoPlano.Name = "cboTipoPlano";
             cboTipoPlano.Size = new Size(121, 25);
             cboTipoPlano.TabIndex = 2;

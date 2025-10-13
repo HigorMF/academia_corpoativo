@@ -48,11 +48,12 @@
             lbNome.BackColor = SystemColors.ActiveCaptionText;
             lbNome.Font = new Font("Microsoft Himalaya", 21.75F);
             lbNome.ForeColor = SystemColors.ButtonHighlight;
-            lbNome.Location = new Point(34, 183);
+            lbNome.Location = new Point(34, 192);
             lbNome.Name = "lbNome";
             lbNome.Size = new Size(61, 29);
             lbNome.TabIndex = 2;
             lbNome.Text = "Nome";
+            lbNome.Click += lbNome_Click;
             // 
             // lbNumeroMatricula
             // 
@@ -60,11 +61,12 @@
             lbNumeroMatricula.BackColor = SystemColors.ActiveCaptionText;
             lbNumeroMatricula.Font = new Font("Microsoft Himalaya", 21.75F);
             lbNumeroMatricula.ForeColor = SystemColors.ButtonHighlight;
-            lbNumeroMatricula.Location = new Point(34, 227);
+            lbNumeroMatricula.Location = new Point(34, 234);
             lbNumeroMatricula.Name = "lbNumeroMatricula";
             lbNumeroMatricula.Size = new Size(88, 29);
             lbNumeroMatricula.TabIndex = 3;
             lbNumeroMatricula.Text = "Matrícula";
+            lbNumeroMatricula.Click += lbNumeroMatricula_Click;
             // 
             // lbPlano
             // 
@@ -126,8 +128,10 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = SystemColors.ActiveCaptionText;
             label2.Font = new Font("Microsoft Himalaya", 21.75F);
-            label2.Location = new Point(356, 115);
+            label2.ForeColor = Color.Transparent;
+            label2.Location = new Point(34, 275);
             label2.Name = "label2";
             label2.Size = new Size(119, 29);
             label2.TabIndex = 10;
