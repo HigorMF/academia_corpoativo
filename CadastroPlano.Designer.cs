@@ -42,40 +42,40 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(60, 73);
             label1.Name = "label1";
-            label1.Size = new Size(34, 15);
+            label1.Size = new Size(40, 17);
             label1.TabIndex = 0;
             label1.Text = "Tipo:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(60, 139);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(45, 17);
             label2.TabIndex = 1;
             label2.Text = "Valor:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(60, 204);
             label3.Name = "label3";
-            label3.Size = new Size(69, 15);
+            label3.Size = new Size(79, 17);
             label3.TabIndex = 2;
             label3.Text = "Data Inicio:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(60, 266);
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(67, 266);
             label4.Name = "label4";
-            label4.Size = new Size(59, 15);
+            label4.Size = new Size(68, 17);
             label4.TabIndex = 3;
             label4.Text = "Data Fim:";
             // 
@@ -95,7 +95,7 @@
             // 
             // mtbDataInicio
             // 
-            mtbDataInicio.Location = new Point(132, 201);
+            mtbDataInicio.Location = new Point(152, 201);
             mtbDataInicio.Mask = "00/00/0000";
             mtbDataInicio.Name = "mtbDataInicio";
             mtbDataInicio.Size = new Size(124, 23);
@@ -105,7 +105,7 @@
             // 
             // mtbDataFim
             // 
-            mtbDataFim.Location = new Point(132, 263);
+            mtbDataFim.Location = new Point(152, 265);
             mtbDataFim.Mask = "00/00/0000";
             mtbDataFim.Name = "mtbDataFim";
             mtbDataFim.Size = new Size(129, 23);
@@ -116,7 +116,7 @@
             // btnCadastroPlano
             // 
             btnCadastroPlano.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCadastroPlano.Location = new Point(182, 323);
+            btnCadastroPlano.Location = new Point(166, 325);
             btnCadastroPlano.Name = "btnCadastroPlano";
             btnCadastroPlano.Size = new Size(110, 36);
             btnCadastroPlano.TabIndex = 9;
@@ -128,7 +128,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(450, 450);
             Controls.Add(btnCadastroPlano);
             Controls.Add(mtbDataFim);
             Controls.Add(mtbDataInicio);
