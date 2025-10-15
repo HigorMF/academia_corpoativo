@@ -1014,13 +1014,15 @@
             panel100.TabIndex = 37;
             // 
             // panel65
-            // 
+            //
+            /*
             panel65.Controls.Add(panel96);
             panel65.Location = new Point(703, 387);
             panel65.Name = "panel65";
             panel65.Size = new Size(134, 90);
             panel65.TabIndex = 37;
             panel65.Paint += panel65_Paint;
+            */
             // 
             // panel96
             // 
