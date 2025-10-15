@@ -23,7 +23,6 @@ namespace academia_corpoativo
             Conexao conexao = new Conexao();
             using (var conn = conexao.GetConnection())
             {
-                var 
             }
         }
     }

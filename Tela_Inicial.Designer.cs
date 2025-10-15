@@ -28,54 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tela_Inicial));
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            button1 = new Button();
+            sidebar = new FlowLayoutPanel();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            label1 = new Label();
+            btnBotao = new PictureBox();
             panel9 = new Panel();
             panel10 = new Panel();
             button4 = new Button();
-            panel2 = new Panel();
-            panel1 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            bntConfiguracao = new Button();
+            bntLogin = new Button();
             panel5 = new Panel();
             panel6 = new Panel();
-            btnAjuda = new Button();
+            btnCadastro = new Button();
             panel7 = new Panel();
             panel8 = new Panel();
             btnSobre = new Button();
-            flowLayoutPanel1.SuspendLayout();
-            panel9.SuspendLayout();
+            sidebarTime = new System.Windows.Forms.Timer(components);
+            sidebar.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnBotao).BeginInit();
+            panel9.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
             panel7.SuspendLayout();
             SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // sidebar
             // 
-            flowLayoutPanel1.BackColor = Color.Black;
-            flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Controls.Add(panel9);
-            flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Controls.Add(panel5);
-            flowLayoutPanel1.Controls.Add(panel7);
-            flowLayoutPanel1.Dock = DockStyle.Left;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(223, 641);
-            flowLayoutPanel1.TabIndex = 0;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint_1;
+            sidebar.BackColor = Color.Black;
+            sidebar.Controls.Add(panel1);
+            sidebar.Controls.Add(panel9);
+            sidebar.Controls.Add(panel3);
+            sidebar.Controls.Add(panel5);
+            sidebar.Controls.Add(panel7);
+            sidebar.Dock = DockStyle.Left;
+            sidebar.Location = new Point(0, 0);
+            sidebar.MaximumSize = new Size(223, 570);
+            sidebar.MinimumSize = new Size(68, 570);
+            sidebar.Name = "sidebar";
+            sidebar.Size = new Size(223, 570);
+            sidebar.TabIndex = 0;
+            sidebar.Paint += flowLayoutPanel1_Paint_1;
             // 
-            // button1
+            // panel1
             // 
-            button1.Location = new Point(638, 385);
-            button1.Name = "button1";
-            button1.Size = new Size(157, 95);
-            button1.TabIndex = 3;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            panel1.Controls.Add(panel2);
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(220, 159);
+            panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(btnBotao);
+            panel2.Location = new Point(-3, -3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(223, 165);
+            panel2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Transparent;
+            label1.Location = new Point(66, 38);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 19);
+            label1.TabIndex = 4;
+            label1.Text = "Menu";
+            // 
+            // btnBotao
+            // 
+            btnBotao.Location = new Point(12, 38);
+            btnBotao.Name = "btnBotao";
+            btnBotao.Size = new Size(48, 50);
+            btnBotao.TabIndex = 0;
+            btnBotao.TabStop = false;
+            btnBotao.Click += btnBotao_Click;
             // 
             // panel9
             // 
@@ -109,25 +144,10 @@
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = true;
             // 
-            // panel2
-            // 
-            panel2.Location = new Point(-3, -3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(223, 165);
-            panel2.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(panel2);
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(220, 159);
-            panel1.TabIndex = 0;
-            // 
             // panel3
             // 
             panel3.Controls.Add(panel4);
-            panel3.Controls.Add(bntConfiguracao);
+            panel3.Controls.Add(bntLogin);
             panel3.Location = new Point(3, 230);
             panel3.Name = "panel3";
             panel3.Size = new Size(220, 56);
@@ -140,26 +160,26 @@
             panel4.Size = new Size(220, 56);
             panel4.TabIndex = 1;
             // 
-            // bntConfiguracao
+            // bntLogin
             // 
-            bntConfiguracao.FlatStyle = FlatStyle.Flat;
-            bntConfiguracao.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bntConfiguracao.ForeColor = Color.White;
-            bntConfiguracao.Image = Properties.Resources.imagem;
-            bntConfiguracao.ImageAlign = ContentAlignment.TopLeft;
-            bntConfiguracao.Location = new Point(-26, -8);
-            bntConfiguracao.Name = "bntConfiguracao";
-            bntConfiguracao.Padding = new Padding(30, 0, 0, 0);
-            bntConfiguracao.Size = new Size(255, 69);
-            bntConfiguracao.TabIndex = 3;
-            bntConfiguracao.Text = "              Configuração";
-            bntConfiguracao.TextAlign = ContentAlignment.MiddleLeft;
-            bntConfiguracao.UseVisualStyleBackColor = true;
+            bntLogin.FlatStyle = FlatStyle.Flat;
+            bntLogin.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bntLogin.ForeColor = Color.White;
+            bntLogin.Image = Properties.Resources.imagem;
+            bntLogin.ImageAlign = ContentAlignment.TopLeft;
+            bntLogin.Location = new Point(-26, -8);
+            bntLogin.Name = "bntLogin";
+            bntLogin.Padding = new Padding(30, 0, 0, 0);
+            bntLogin.Size = new Size(255, 69);
+            bntLogin.TabIndex = 3;
+            bntLogin.Text = "              Login";
+            bntLogin.TextAlign = ContentAlignment.MiddleLeft;
+            bntLogin.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
             panel5.Controls.Add(panel6);
-            panel5.Controls.Add(btnAjuda);
+            panel5.Controls.Add(btnCadastro);
             panel5.Location = new Point(3, 292);
             panel5.Name = "panel5";
             panel5.Size = new Size(220, 56);
@@ -172,21 +192,21 @@
             panel6.Size = new Size(220, 56);
             panel6.TabIndex = 1;
             // 
-            // btnAjuda
+            // btnCadastro
             // 
-            btnAjuda.FlatStyle = FlatStyle.Flat;
-            btnAjuda.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAjuda.ForeColor = Color.White;
-            btnAjuda.Image = Properties.Resources.imagem;
-            btnAjuda.ImageAlign = ContentAlignment.TopLeft;
-            btnAjuda.Location = new Point(-26, -8);
-            btnAjuda.Name = "btnAjuda";
-            btnAjuda.Padding = new Padding(30, 0, 0, 0);
-            btnAjuda.Size = new Size(255, 69);
-            btnAjuda.TabIndex = 3;
-            btnAjuda.Text = "              Ajuda";
-            btnAjuda.TextAlign = ContentAlignment.MiddleLeft;
-            btnAjuda.UseVisualStyleBackColor = true;
+            btnCadastro.FlatStyle = FlatStyle.Flat;
+            btnCadastro.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCadastro.ForeColor = Color.White;
+            btnCadastro.Image = Properties.Resources.imagem;
+            btnCadastro.ImageAlign = ContentAlignment.TopLeft;
+            btnCadastro.Location = new Point(-26, -8);
+            btnCadastro.Name = "btnCadastro";
+            btnCadastro.Padding = new Padding(30, 0, 0, 0);
+            btnCadastro.Size = new Size(255, 69);
+            btnCadastro.TabIndex = 3;
+            btnCadastro.Text = "              Cadastro";
+            btnCadastro.TextAlign = ContentAlignment.MiddleLeft;
+            btnCadastro.UseVisualStyleBackColor = true;
             // 
             // panel7
             // 
@@ -220,21 +240,27 @@
             btnSobre.TextAlign = ContentAlignment.MiddleLeft;
             btnSobre.UseVisualStyleBackColor = true;
             // 
+            // sidebarTime
+            // 
+            sidebarTime.Tick += sidebarTime_Tick;
+            // 
             // Tela_Inicial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1095, 641);
-            Controls.Add(button1);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(1095, 570);
+            Controls.Add(sidebar);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Tela_Inicial";
             Text = "Tela_Inicial";
             Load += Tela_Inicial_Load;
-            flowLayoutPanel1.ResumeLayout(false);
-            panel9.ResumeLayout(false);
+            sidebar.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnBotao).EndInit();
+            panel9.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel7.ResumeLayout(false);
@@ -243,8 +269,7 @@
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button button1;
+        private FlowLayoutPanel sidebar;
         private Panel panel9;
         private Panel panel10;
         private Button button4;
@@ -252,12 +277,15 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private Button bntConfiguracao;
+        private Button bntLogin;
         private Panel panel5;
         private Panel panel6;
-        private Button btnAjuda;
+        private Button btnCadastro;
         private Panel panel7;
         private Panel panel8;
         private Button btnSobre;
+        private Label label1;
+        private PictureBox btnBotao;
+        private System.Windows.Forms.Timer sidebarTime;
     }
 }

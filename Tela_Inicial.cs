@@ -12,6 +12,8 @@ namespace academia_corpoativo
 {
     public partial class Tela_Inicial : Form
     {
+        bool sidebarExpand;
+
         public Tela_Inicial()
         {
             InitializeComponent();
@@ -37,24 +39,38 @@ namespace academia_corpoativo
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void sidebarTime_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                sidebar.Width -= -10;
+                if (sidebar.Width == sidebar.MinimumSize.Width)
+                {
+
+                    sidebarExpand = false;
+                    sidebarTime.Stop();
+
+                }
+                else
+                {
+                    sidebar.Width += 10;
+                    if (sidebar.Width == sidebar.MinimumSize.Width)
+                    {
+                        sidebarExpand = true;
+                        sidebarTime.Stop();
+                    }
+                }
+            }
+        }
+
+        private void btnBotao_Click(object sender, EventArgs e)
+        {
+            sidebarTime.Start();
         }
     }
 }

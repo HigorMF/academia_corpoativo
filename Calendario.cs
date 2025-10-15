@@ -21,12 +21,5 @@ namespace academia_corpoativo
         {
 
         }
-
-        private void  
-
-        private void panel65_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
