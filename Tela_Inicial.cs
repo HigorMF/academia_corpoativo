@@ -72,5 +72,15 @@ namespace academia_corpoativo
         {
             sidebarTime.Start();
         }
+
+        private void btnSobre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

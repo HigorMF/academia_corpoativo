@@ -135,14 +135,15 @@
             button4.ForeColor = Color.White;
             button4.Image = Properties.Resources.imagem;
             button4.ImageAlign = ContentAlignment.TopLeft;
-            button4.Location = new Point(-26, -8);
+            button4.Location = new Point(-26, 3);
             button4.Name = "button4";
             button4.Padding = new Padding(30, 0, 0, 0);
-            button4.Size = new Size(255, 69);
+            button4.Size = new Size(255, 56);
             button4.TabIndex = 3;
             button4.Text = "              Inicio";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
+            button4.TextAlign = ContentAlignment.TopLeft;
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // panel3
             // 
@@ -165,9 +166,9 @@
             bntLogin.FlatStyle = FlatStyle.Flat;
             bntLogin.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bntLogin.ForeColor = Color.White;
-            bntLogin.Image = Properties.Resources.imagem;
+            bntLogin.Image = Properties.Resources.Design_sem_nome;
             bntLogin.ImageAlign = ContentAlignment.TopLeft;
-            bntLogin.Location = new Point(-26, -8);
+            bntLogin.Location = new Point(-26, 0);
             bntLogin.Name = "bntLogin";
             bntLogin.Padding = new Padding(30, 0, 0, 0);
             bntLogin.Size = new Size(255, 69);
@@ -199,7 +200,7 @@
             btnCadastro.ForeColor = Color.White;
             btnCadastro.Image = Properties.Resources.imagem;
             btnCadastro.ImageAlign = ContentAlignment.TopLeft;
-            btnCadastro.Location = new Point(-26, -8);
+            btnCadastro.Location = new Point(-26, 3);
             btnCadastro.Name = "btnCadastro";
             btnCadastro.Padding = new Padding(30, 0, 0, 0);
             btnCadastro.Size = new Size(255, 69);
@@ -231,7 +232,7 @@
             btnSobre.ForeColor = Color.White;
             btnSobre.Image = Properties.Resources.imagem;
             btnSobre.ImageAlign = ContentAlignment.TopLeft;
-            btnSobre.Location = new Point(-26, -8);
+            btnSobre.Location = new Point(-26, 3);
             btnSobre.Name = "btnSobre";
             btnSobre.Padding = new Padding(30, 0, 0, 0);
             btnSobre.Size = new Size(255, 69);
@@ -239,6 +240,7 @@
             btnSobre.Text = "              Sobre";
             btnSobre.TextAlign = ContentAlignment.MiddleLeft;
             btnSobre.UseVisualStyleBackColor = true;
+            btnSobre.Click += btnSobre_Click;
             // 
             // sidebarTime
             // 
