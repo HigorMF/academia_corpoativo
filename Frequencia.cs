@@ -18,7 +18,7 @@ namespace academia_corpoativo
         {
             InitializeComponent();
         }
-               
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             Conexao conexao = new Conexao();
@@ -41,10 +41,30 @@ namespace academia_corpoativo
 
                     try
                     {
-                        
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Frequencia cadastrada com sucesso!");
+                        conn.Open();
+                        int rows = cmd.ExecuteNonQuery();
+
+                        if (rows > 0)
+
+                            MessageBox.Show("Frequencia cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        else
+                            MessageBox.Show("Nenhum registro foi inserido. Verifique os dados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                    catch (MySqlException)
+                    {
+                        MessageBox.Show("Erro ao inserir dados no banco de dados:+ ex.Message", "Erro de banco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro inesperado: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        if (conn.State == ConnectionState.Open)
+                            conn.Close();
+                    }
                 }
             }
         }
