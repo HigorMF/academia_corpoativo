@@ -100,9 +100,10 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(142, 255);
             label4.Name = "label4";
-            label4.Size = new Size(55, 15);
+            label4.Size = new Size(65, 17);
             label4.TabIndex = 16;
             label4.Text = "Telefone:";
             // 

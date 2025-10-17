@@ -30,15 +30,18 @@ namespace academia_corpoativo
                 var Entrada = mtbEntrada.Text;
                 var Saida = mtbSaida.Text;
 
-                string Sql = "INSERT INTO frequencia (id_aluno, id_turma, data, entrada, saida); VALUES(@tipo, @id_aluno, @id_turma, @data, @entrada, @saida)";
+                string Sql = "INSERT INTO frequencia (id_aluno, id_turma, data, entrada, saida) VALUES(@id_aluno, @id_turma, @data, @entrada, @saida)";
                 using (var cmd = new MySqlCommand(Sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@id_aluno", ID_Aluno);
                     cmd.Parameters.AddWithValue("@id_turma", ID_Turma);
                     cmd.Parameters.AddWithValue("@data", Data);
-                    cmd.Parameters.AddWithValue("entrada", Entrada);
-                    cmd.Parameters.AddWithValue("saida", Saida);
+                    cmd.Parameters.AddWithValue("@entrada", Entrada);
+                    cmd.Parameters.AddWithValue("@saida", Saida);
 
+                    try
+                    {
+                        
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Frequencia cadastrada com sucesso!");
