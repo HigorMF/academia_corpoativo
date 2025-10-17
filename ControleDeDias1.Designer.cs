@@ -35,7 +35,7 @@
             // 
             lblDia.AutoSize = true;
             lblDia.Font = new Font("Monospac821 BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDia.Location = new Point(13, 12);
+            lblDia.Location = new Point(53, 0);
             lblDia.Name = "lblDia";
             lblDia.Size = new Size(26, 18);
             lblDia.TabIndex = 1;
