@@ -37,6 +37,7 @@
             pictureBox4 = new PictureBox();
             checkSenha = new CheckBox();
             linkReseteSenhaLogin = new LinkLabel();
+            linkCadastro = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             // btn_login
             // 
             btn_login.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btn_login.Location = new Point(475, 483);
+            btn_login.Location = new Point(471, 521);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(75, 23);
             btn_login.TabIndex = 4;
@@ -125,12 +126,25 @@
             linkReseteSenhaLogin.Text = "Esqueceu a senha ou login?";
             linkReseteSenhaLogin.LinkClicked += linkReseteSenhaLogin_LinkClicked;
             // 
+            // linkCadastro
+            // 
+            linkCadastro.AutoSize = true;
+            linkCadastro.LinkColor = Color.PaleTurquoise;
+            linkCadastro.Location = new Point(414, 454);
+            linkCadastro.Name = "linkCadastro";
+            linkCadastro.Size = new Size(231, 15);
+            linkCadastro.TabIndex = 12;
+            linkCadastro.TabStop = true;
+            linkCadastro.Text = "Não possui um cadastro? Cadastre-se aqui";
+            linkCadastro.LinkClicked += linkCadastro_LinkClicked;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(959, 663);
+            Controls.Add(linkCadastro);
             Controls.Add(linkReseteSenhaLogin);
             Controls.Add(pictureBox4);
             Controls.Add(btn_login);
@@ -157,5 +171,6 @@
         private PictureBox pictureBox4;
         private CheckBox checkSenha;
         private LinkLabel linkReseteSenhaLogin;
+        private LinkLabel linkCadastro;
     }
 }

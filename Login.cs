@@ -49,7 +49,7 @@ namespace academia_corpoativo
                 {
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@senha", senha);
-                   
+
 
                     conn.Open();
 
@@ -128,6 +128,12 @@ namespace academia_corpoativo
         {
             RecuperarSenha formRecuperar = new RecuperarSenha();
             formRecuperar.ShowDialog();
+        }
+
+        private void linkCadastro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CadastroAluno LoginCadastro = new CadastroAluno();
+            LoginCadastro.ShowDialog();
         }
     }
 }

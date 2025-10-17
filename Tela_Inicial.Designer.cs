@@ -35,8 +35,8 @@
             panel2 = new Panel();
             label1 = new Label();
             btnBotao = new PictureBox();
-            panel9 = new Panel();
-            panel10 = new Panel();
+            HomeContainer = new Panel();
+            btnSubMenu = new Button();
             button4 = new Button();
             panel3 = new Panel();
             panel4 = new Panel();
@@ -48,24 +48,25 @@
             panel8 = new Panel();
             btnSobre = new Button();
             sidebarTime = new System.Windows.Forms.Timer(components);
-            HomeContainer = new Panel();
-            btnSubMenu = new Button();
             HomeTime = new System.Windows.Forms.Timer(components);
             sidebar.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnBotao).BeginInit();
-            panel9.SuspendLayout();
+            HomeContainer.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
             panel7.SuspendLayout();
-            HomeContainer.SuspendLayout();
             SuspendLayout();
             // 
             // sidebar
             // 
             sidebar.BackColor = Color.Black;
             sidebar.Controls.Add(panel1);
+            sidebar.Controls.Add(HomeContainer);
+            sidebar.Controls.Add(panel3);
+            sidebar.Controls.Add(panel5);
+            sidebar.Controls.Add(panel7);
             sidebar.Dock = DockStyle.Left;
             sidebar.Location = new Point(0, 0);
             sidebar.MaximumSize = new Size(223, 570);
@@ -105,28 +106,42 @@
             // 
             // btnBotao
             // 
+            btnBotao.Cursor = Cursors.Hand;
+            btnBotao.Image = Properties.Resources.imagem;
             btnBotao.Location = new Point(12, 38);
             btnBotao.Name = "btnBotao";
             btnBotao.Size = new Size(48, 50);
+            btnBotao.SizeMode = PictureBoxSizeMode.CenterImage;
             btnBotao.TabIndex = 0;
             btnBotao.TabStop = false;
             btnBotao.Click += btnBotao_Click;
             // 
-            // panel9
+            // HomeContainer
             // 
-            panel9.Controls.Add(panel10);
-            panel9.Controls.Add(button4);
-            panel9.Location = new Point(298, 230);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(220, 56);
-            panel9.TabIndex = 6;
+            HomeContainer.BackColor = Color.Black;
+            HomeContainer.Controls.Add(btnSubMenu);
+            HomeContainer.Controls.Add(button4);
+            HomeContainer.Location = new Point(3, 168);
+            HomeContainer.Name = "HomeContainer";
+            HomeContainer.Size = new Size(220, 53);
+            HomeContainer.TabIndex = 7;
             // 
-            // panel10
+            // btnSubMenu
             // 
-            panel10.Location = new Point(0, 106);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(220, 56);
-            panel10.TabIndex = 1;
+            btnSubMenu.BackColor = SystemColors.WindowFrame;
+            btnSubMenu.FlatStyle = FlatStyle.Flat;
+            btnSubMenu.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSubMenu.ForeColor = Color.White;
+            btnSubMenu.ImageAlign = ContentAlignment.TopLeft;
+            btnSubMenu.Location = new Point(-28, 54);
+            btnSubMenu.Name = "btnSubMenu";
+            btnSubMenu.Padding = new Padding(30, 0, 0, 0);
+            btnSubMenu.Size = new Size(255, 48);
+            btnSubMenu.TabIndex = 4;
+            btnSubMenu.Text = "              Sub Menu";
+            btnSubMenu.TextAlign = ContentAlignment.TopLeft;
+            btnSubMenu.UseVisualStyleBackColor = false;
+            btnSubMenu.Click += btnSubMenu_Click;
             // 
             // button4
             // 
@@ -151,7 +166,7 @@
             panel3.BackColor = SystemColors.ActiveCaptionText;
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(bntLogin);
-            panel3.Location = new Point(618, 168);
+            panel3.Location = new Point(3, 227);
             panel3.Name = "panel3";
             panel3.Size = new Size(220, 56);
             panel3.TabIndex = 7;
@@ -178,13 +193,14 @@
             bntLogin.Text = "              Login";
             bntLogin.TextAlign = ContentAlignment.MiddleLeft;
             bntLogin.UseVisualStyleBackColor = true;
+            bntLogin.Click += bntLogin_Click;
             // 
             // panel5
             // 
             panel5.BackColor = SystemColors.ActiveCaptionText;
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(btnCadastro);
-            panel5.Location = new Point(618, 230);
+            panel5.Location = new Point(3, 289);
             panel5.Name = "panel5";
             panel5.Size = new Size(220, 56);
             panel5.TabIndex = 8;
@@ -208,16 +224,17 @@
             btnCadastro.Padding = new Padding(30, 0, 0, 0);
             btnCadastro.Size = new Size(255, 69);
             btnCadastro.TabIndex = 3;
-            btnCadastro.Text = "              Cadastro";
+            btnCadastro.Text = "              Modalidades";
             btnCadastro.TextAlign = ContentAlignment.MiddleLeft;
             btnCadastro.UseVisualStyleBackColor = true;
+            btnCadastro.Click += btnCadastro_Click;
             // 
             // panel7
             // 
             panel7.BackColor = SystemColors.ActiveCaptionText;
             panel7.Controls.Add(panel8);
             panel7.Controls.Add(btnSobre);
-            panel7.Location = new Point(618, 292);
+            panel7.Location = new Point(3, 351);
             panel7.Name = "panel7";
             panel7.Size = new Size(220, 56);
             panel7.TabIndex = 9;
@@ -251,32 +268,6 @@
             sidebarTime.Interval = 10;
             sidebarTime.Tick += sidebarTime_Tick;
             // 
-            // HomeContainer
-            // 
-            HomeContainer.BackColor = Color.Black;
-            HomeContainer.Controls.Add(btnSubMenu);
-            HomeContainer.Location = new Point(298, 230);
-            HomeContainer.Name = "HomeContainer";
-            HomeContainer.Size = new Size(220, 102);
-            HomeContainer.TabIndex = 7;
-            // 
-            // btnSubMenu
-            // 
-            btnSubMenu.BackColor = SystemColors.WindowFrame;
-            btnSubMenu.FlatStyle = FlatStyle.Flat;
-            btnSubMenu.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSubMenu.ForeColor = Color.White;
-            btnSubMenu.ImageAlign = ContentAlignment.TopLeft;
-            btnSubMenu.Location = new Point(-28, 54);
-            btnSubMenu.Name = "btnSubMenu";
-            btnSubMenu.Padding = new Padding(30, 0, 0, 0);
-            btnSubMenu.Size = new Size(255, 56);
-            btnSubMenu.TabIndex = 4;
-            btnSubMenu.Text = "              Sub Menu";
-            btnSubMenu.TextAlign = ContentAlignment.TopLeft;
-            btnSubMenu.UseVisualStyleBackColor = false;
-            btnSubMenu.Click += btnSubMenu_Click;
-            // 
             // HomeTime
             // 
             HomeTime.Interval = 10;
@@ -287,13 +278,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1095, 570);
+            ClientSize = new Size(1095, 563);
             Controls.Add(sidebar);
-            Controls.Add(panel9);
-            Controls.Add(panel3);
-            Controls.Add(HomeContainer);
-            Controls.Add(panel7);
-            Controls.Add(panel5);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Tela_Inicial";
             Text = "Tela_Inicial";
@@ -303,20 +289,16 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnBotao).EndInit();
-            panel9.ResumeLayout(false);
+            HomeContainer.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel7.ResumeLayout(false);
-            HomeContainer.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private FlowLayoutPanel sidebar;
-        private Panel panel9;
-        private Panel panel10;
-        private Button button4;
         private Panel panel3;
         private Panel panel4;
         private Button bntLogin;
@@ -334,5 +316,6 @@
         private Panel HomeContainer;
         private Button btnSubMenu;
         private System.Windows.Forms.Timer HomeTime;
+        private Button button4;
     }
 }

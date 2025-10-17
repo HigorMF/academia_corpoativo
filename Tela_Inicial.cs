@@ -81,7 +81,7 @@ namespace academia_corpoativo
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            HomeTime.Start();
         }
 
         private void HomeTime_Tick(object sender, EventArgs e)
@@ -110,6 +110,17 @@ namespace academia_corpoativo
         private void btnSubMenu_Click(object sender, EventArgs e)
         {
             HomeTime.Start();
+        }
+
+        private void bntLogin_Click(object sender, EventArgs e)
+        {
+            Login LoginMenu = new Login();
+            LoginMenu.ShowDialog();
+        }
+
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
