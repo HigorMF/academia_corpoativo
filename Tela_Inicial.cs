@@ -13,6 +13,7 @@ namespace academia_corpoativo
     public partial class Tela_Inicial : Form
     {
         bool sidebarExpand;
+        bool homeCollapse;
 
         public Tela_Inicial()
         {
@@ -81,6 +82,29 @@ namespace academia_corpoativo
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void HomeTime_Tick(object sender, EventArgs e)
+        {
+            if (homeCollapse)
+            {
+                HomeContainer.Height += 10;
+                if (HomeContainer.Height == HomeContainer.MinimumSize.Height)
+                {
+                    homeCollapse = false;
+                    HomeTime.Stop();
+                }
+
+            }
+            else
+            {
+                HomeContainer.Height -= 10;
+                if (HomeContainer.Height == HomeContainer.MaximumSize.Height)
+                {
+                    homeCollapse = true;
+                    HomeTime.Stop();
+                }
+            }
         }
     }
 }
