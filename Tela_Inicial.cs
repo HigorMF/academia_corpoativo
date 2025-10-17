@@ -106,5 +106,10 @@ namespace academia_corpoativo
                 }
             }
         }
+
+        private void btnSubMenu_Click(object sender, EventArgs e)
+        {
+            HomeTime.Start();
+        }
     }
 }

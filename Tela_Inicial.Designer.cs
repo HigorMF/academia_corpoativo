@@ -275,9 +275,11 @@
             btnSubMenu.Text = "              Sub Menu";
             btnSubMenu.TextAlign = ContentAlignment.TopLeft;
             btnSubMenu.UseVisualStyleBackColor = false;
+            btnSubMenu.Click += btnSubMenu_Click;
             // 
             // HomeTime
             // 
+            HomeTime.Interval = 10;
             HomeTime.Tick += HomeTime_Tick;
             // 
             // Tela_Inicial
