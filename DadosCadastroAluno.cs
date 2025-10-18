@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace academia_corpoativo
 {
-    public partial class DadosCadastroAluno: Form
+    public partial class DadosCadastroAluno : Form
     {
         public DadosCadastroAluno()
         {
             InitializeComponent();
+        }
+
+        private void dataCalendarioPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Conexao conexao = 
         }
     }
 }

@@ -13,7 +13,6 @@ namespace academia_corpoativo
     public partial class Tela_Inicial : Form
     {
         bool sidebarExpand;
-        bool homeCollapse;
 
         public Tela_Inicial()
         {
@@ -49,6 +48,7 @@ namespace academia_corpoativo
         {
             if (sidebarExpand)
             {
+                
                 sidebar.Width -= -10;
                 if (sidebar.Width == sidebar.MinimumSize.Width)
                 {
@@ -60,7 +60,7 @@ namespace academia_corpoativo
                 else
                 {
                     sidebar.Width += 10;
-                    if (sidebar.Width == sidebar.MinimumSize.Width)
+                    if (sidebar.Width == sidebar.MaximumSize.Width)
                     {
                         sidebarExpand = true;
                         sidebarTime.Stop();
@@ -71,7 +71,7 @@ namespace academia_corpoativo
 
         private void btnBotao_Click(object sender, EventArgs e)
         {
-            sidebarTime.Start();
+           
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
@@ -81,35 +81,11 @@ namespace academia_corpoativo
 
         private void button4_Click(object sender, EventArgs e)
         {
-            HomeTime.Start();
-        }
 
-        private void HomeTime_Tick(object sender, EventArgs e)
-        {
-            if (homeCollapse)
-            {
-                HomeContainer.Height += 10;
-                if (HomeContainer.Height == HomeContainer.MinimumSize.Height)
-                {
-                    homeCollapse = false;
-                    HomeTime.Stop();
-                }
-
-            }
-            else
-            {
-                HomeContainer.Height -= 10;
-                if (HomeContainer.Height == HomeContainer.MaximumSize.Height)
-                {
-                    homeCollapse = true;
-                    HomeTime.Stop();
-                }
-            }
         }
 
         private void btnSubMenu_Click(object sender, EventArgs e)
         {
-            HomeTime.Start();
         }
 
         private void bntLogin_Click(object sender, EventArgs e)
@@ -120,7 +96,12 @@ namespace academia_corpoativo
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
