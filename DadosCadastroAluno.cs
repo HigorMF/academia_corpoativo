@@ -19,7 +19,7 @@ namespace academia_corpoativo
 
         private void dataCalendarioPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Conexao conexao = 
+           
         }
     }
 }
