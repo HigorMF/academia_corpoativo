@@ -71,7 +71,7 @@ namespace academia_corpoativo
 
         private void btnBotao_Click(object sender, EventArgs e)
         {
-           
+            sidebarTime.Start();
         }
 
         private void btnSobre_Click(object sender, EventArgs e)

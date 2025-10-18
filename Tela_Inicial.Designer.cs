@@ -84,6 +84,7 @@
             // 
             // panel2
             // 
+            panel2.AccessibleRole = AccessibleRole.None;
             panel2.Controls.Add(label1);
             panel2.Controls.Add(btnBotao);
             panel2.Location = new Point(-3, -3);
