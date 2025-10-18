@@ -24,11 +24,11 @@ namespace academia_corpoativo
             Conexao conexao = new Conexao();
             using (var conn = conexao.GetConnection())
             {
-                var ID_Aluno = txtID_Aluno.Text;
-                var ID_Turma = txtID_Turma.Text;
-                var Data = mtbData.Text;
-                var Entrada = mtbEntrada.Text;
-                var Saida = mtbSaida.Text;
+                var ID_Aluno = txtID_Aluno.Text.Trim();
+                var ID_Turma = txtID_Turma.Text.Trim();
+                var Data = mtbData.Text.Trim();
+                var Entrada = mtbEntrada.Text.Trim();
+                var Saida = mtbSaida.Text.Trim();
 
                 string Sql = "INSERT INTO frequencia (id_aluno, id_turma, data, entrada, saida) VALUES(@id_aluno, @id_turma, @data, @entrada, @saida)";
                 using (var cmd = new MySqlCommand(Sql, conn))
@@ -52,9 +52,9 @@ namespace academia_corpoativo
                             MessageBox.Show("Nenhum registro foi inserido. Verifique os dados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    catch (MySqlException)
+                    catch (MySqlException ex)
                     {
-                        MessageBox.Show("Erro ao inserir dados no banco de dados:+ ex.Message", "Erro de banco", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Erro ao inserir dados no banco de dados:" + ex.Message, "Erro de banco", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {

@@ -150,7 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(885, 477);
+            ClientSize = new Size(412, 477);
             Controls.Add(btnOK);
             Controls.Add(mtbSaida);
             Controls.Add(mtbEntrada);
@@ -164,7 +164,6 @@
             Controls.Add(lblID_Aluno);
             Name = "Frequencia";
             Text = "Frequencia";
-            
             ResumeLayout(false);
             PerformLayout();
         }
