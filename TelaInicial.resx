@@ -117,27 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="sidebarTime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="sidebartimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>55</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAAAIAC2AgAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAQAAAAEAgCAAAAkJFoNgAAAn1J
-        REFUeJwtyjtrFFEYBuD3+845szN7SdxM3MSYYHQjXgpJRAsDiohoYWXjD/GviJWVFloFRBBBsBUvTUQU
-        YhKj5mLcdS/J7uzuzJxzPhuf+iE1ViMVChtRDBWw0gTns1RARAQCvCcvJJaQBcZrcCCsvWIOIggBTIWS
-        LrN3QD7yowRMwjAkgdHMToMDUUpFZTbjxak5H5VdOqQ8EZuJCuFz294xrjcRl9L+4LCTsTCTicChmTl3
-        /OY9FRxJ95ujnh308mx70x50o5l6PD8LQTJU1mniyTq0VsWqnj43/L0HKty4G1+9LK8Pbq2+a0/svV04
-        W9n50f+5uiZpH84ST50maK4tVArm4oXFypmlmbNzn189jvTW9KU7x8c2frz/8vxFanXompsQyxAiU1Cs
-        e83G4ono1rz6uvIypOb15fn7S8s7axeePklcmhIIuiAgBkA6kDwD0cNnbz59+1U/ORnFjjH26NXnudCV
-        4ooXgRfoAAINggACsFZW3MqHn+dvX4kb/OB5s0HtQmtfTBHo4v8SDZDYHMx5NoqqBTP69vF1YWr8WP30
-        F7Pe2NoaIB8wLDPEZgIQ186AKZyuX1taqFXLUWk8ORw0e9RstWZrY4f9JC6brd3m6vo29fbEWw14BleD
-        TiMdrr/bDMNSToExyntZ+97uHxxsiMvCCRl2IF7EUTB1yoSmUtEJxhMfo98iiHMeADOR0lKsSv8vp10v
-        lp3VgcldTn9bLNJWRajJWQ7CYjUG0aDT9unAdnclOxQInBMn2qbWOu05h9Ju0PFpn0sTI4wIlLX/SNIR
-        l4s4spacF2eJykeJDXEgTGAGMUS8swBYa4DEO/Ie3otz4vN/IUlWge1jp+4AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

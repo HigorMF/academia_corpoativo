@@ -33,10 +33,10 @@
             lb_CPF = new Label();
             lb_ID = new Label();
             txtBuscarIDAluno = new TextBox();
-            dataGridView1 = new DataGridView();
+            dataCalendarioPesquisa = new DataGridView();
             lbEmail = new Label();
             txtBuscarEmailAluno = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataCalendarioPesquisa).BeginInit();
             SuspendLayout();
             // 
             // btn_BuscarCadastroAluno
@@ -80,13 +80,14 @@
             txtBuscarIDAluno.Size = new Size(356, 23);
             txtBuscarIDAluno.TabIndex = 4;
             // 
-            // dataGridView1
+            // dataCalendarioPesquisa
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 199);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(984, 446);
-            dataGridView1.TabIndex = 6;
+            dataCalendarioPesquisa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataCalendarioPesquisa.Location = new Point(12, 199);
+            dataCalendarioPesquisa.Name = "dataCalendarioPesquisa";
+            dataCalendarioPesquisa.Size = new Size(984, 446);
+            dataCalendarioPesquisa.TabIndex = 6;
+            dataCalendarioPesquisa.CellContentClick += dataCalendarioPesquisa_CellContentClick;
             // 
             // lbEmail
             // 
@@ -111,7 +112,7 @@
             ClientSize = new Size(1008, 682);
             Controls.Add(lbEmail);
             Controls.Add(txtBuscarEmailAluno);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataCalendarioPesquisa);
             Controls.Add(lb_ID);
             Controls.Add(txtBuscarIDAluno);
             Controls.Add(lb_CPF);
@@ -119,7 +120,7 @@
             Controls.Add(btn_BuscarCadastroAluno);
             Name = "DadosCadastroAluno";
             Text = "DadosCadastroAluno";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataCalendarioPesquisa).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -132,7 +133,7 @@
         private Label lb_CPF;
         private Label lb_ID;
         private TextBox txtBuscarIDAluno;
-        private DataGridView dataGridView1;
+        private DataGridView dataCalendarioPesquisa;
         private Label lbEmail;
         private TextBox txtBuscarEmailAluno;
     }

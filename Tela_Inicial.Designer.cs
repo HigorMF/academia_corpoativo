@@ -36,7 +36,6 @@
             label1 = new Label();
             btnBotao = new PictureBox();
             HomeContainer = new Panel();
-            btnSubMenu = new Button();
             button4 = new Button();
             panel3 = new Panel();
             panel4 = new Panel();
@@ -48,7 +47,6 @@
             panel8 = new Panel();
             btnSobre = new Button();
             sidebarTime = new System.Windows.Forms.Timer(components);
-            HomeTime = new System.Windows.Forms.Timer(components);
             sidebar.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -86,6 +84,7 @@
             // 
             // panel2
             // 
+            panel2.AccessibleRole = AccessibleRole.None;
             panel2.Controls.Add(label1);
             panel2.Controls.Add(btnBotao);
             panel2.Location = new Point(-3, -3);
@@ -98,17 +97,18 @@
             label1.AutoSize = true;
             label1.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(66, 38);
+            label1.Location = new Point(66, 30);
             label1.Name = "label1";
             label1.Size = new Size(48, 19);
             label1.TabIndex = 4;
             label1.Text = "Menu";
+            label1.Click += label1_Click;
             // 
             // btnBotao
             // 
             btnBotao.Cursor = Cursors.Hand;
             btnBotao.Image = Properties.Resources.imagem;
-            btnBotao.Location = new Point(12, 38);
+            btnBotao.Location = new Point(12, 30);
             btnBotao.Name = "btnBotao";
             btnBotao.Size = new Size(48, 50);
             btnBotao.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -119,29 +119,11 @@
             // HomeContainer
             // 
             HomeContainer.BackColor = Color.Black;
-            HomeContainer.Controls.Add(btnSubMenu);
             HomeContainer.Controls.Add(button4);
             HomeContainer.Location = new Point(3, 168);
             HomeContainer.Name = "HomeContainer";
-            HomeContainer.Size = new Size(220, 53);
+            HomeContainer.Size = new Size(220, 69);
             HomeContainer.TabIndex = 7;
-            // 
-            // btnSubMenu
-            // 
-            btnSubMenu.BackColor = SystemColors.WindowFrame;
-            btnSubMenu.FlatStyle = FlatStyle.Flat;
-            btnSubMenu.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSubMenu.ForeColor = Color.White;
-            btnSubMenu.ImageAlign = ContentAlignment.TopLeft;
-            btnSubMenu.Location = new Point(-28, 54);
-            btnSubMenu.Name = "btnSubMenu";
-            btnSubMenu.Padding = new Padding(30, 0, 0, 0);
-            btnSubMenu.Size = new Size(255, 48);
-            btnSubMenu.TabIndex = 4;
-            btnSubMenu.Text = "              Sub Menu";
-            btnSubMenu.TextAlign = ContentAlignment.TopLeft;
-            btnSubMenu.UseVisualStyleBackColor = false;
-            btnSubMenu.Click += btnSubMenu_Click;
             // 
             // button4
             // 
@@ -151,10 +133,10 @@
             button4.ForeColor = Color.White;
             button4.Image = Properties.Resources.imagem;
             button4.ImageAlign = ContentAlignment.TopLeft;
-            button4.Location = new Point(-28, 0);
+            button4.Location = new Point(-26, -6);
             button4.Name = "button4";
             button4.Padding = new Padding(30, 0, 0, 0);
-            button4.Size = new Size(255, 57);
+            button4.Size = new Size(255, 97);
             button4.TabIndex = 3;
             button4.Text = "              Inicio";
             button4.TextAlign = ContentAlignment.TopLeft;
@@ -166,7 +148,7 @@
             panel3.BackColor = SystemColors.ActiveCaptionText;
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(bntLogin);
-            panel3.Location = new Point(3, 227);
+            panel3.Location = new Point(3, 243);
             panel3.Name = "panel3";
             panel3.Size = new Size(220, 56);
             panel3.TabIndex = 7;
@@ -200,7 +182,7 @@
             panel5.BackColor = SystemColors.ActiveCaptionText;
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(btnCadastro);
-            panel5.Location = new Point(3, 289);
+            panel5.Location = new Point(3, 305);
             panel5.Name = "panel5";
             panel5.Size = new Size(220, 56);
             panel5.TabIndex = 8;
@@ -234,7 +216,7 @@
             panel7.BackColor = SystemColors.ActiveCaptionText;
             panel7.Controls.Add(panel8);
             panel7.Controls.Add(btnSobre);
-            panel7.Location = new Point(3, 351);
+            panel7.Location = new Point(3, 367);
             panel7.Name = "panel7";
             panel7.Size = new Size(220, 56);
             panel7.TabIndex = 9;
@@ -265,13 +247,8 @@
             // 
             // sidebarTime
             // 
-            sidebarTime.Interval = 10;
+            sidebarTime.Interval = 1;
             sidebarTime.Tick += sidebarTime_Tick;
-            // 
-            // HomeTime
-            // 
-            HomeTime.Interval = 10;
-            HomeTime.Tick += HomeTime_Tick;
             // 
             // Tela_Inicial
             // 
@@ -312,10 +289,8 @@
         private Panel panel1;
         private Panel panel2;
         private Label label1;
-        private PictureBox btnBotao;
         private Panel HomeContainer;
-        private Button btnSubMenu;
-        private System.Windows.Forms.Timer HomeTime;
         private Button button4;
+        private PictureBox btnBotao;
     }
 }
