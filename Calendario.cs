@@ -14,6 +14,9 @@ namespace academia_corpoativo
     public partial class Calendario : Form
     {
         int mes, ano;
+
+        public static string static_mes, static_ano;
+
         public Calendario()
         {
             InitializeComponent();
@@ -37,6 +40,9 @@ namespace academia_corpoativo
 
             string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(mes);
             lbData.Text = monthname + " " + ano;
+
+            static_mes = mes.ToString();
+            static_ano = ano.ToString();
 
             DateTime startofthemonth = new DateTime(ano, mes, 1);
 
@@ -63,6 +69,9 @@ namespace academia_corpoativo
             CalendarioGeral.Controls.Clear();
 
             mes++;
+
+            static_mes = mes.ToString();
+            static_ano = ano.ToString();
 
             string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(mes);
             lbData.Text = monthname + " " + ano;

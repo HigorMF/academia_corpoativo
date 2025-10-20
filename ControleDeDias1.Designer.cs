@@ -50,6 +50,7 @@
             Name = "ControleDeDias1";
             Size = new Size(134, 90);
             Load += ControleDeDias1_Load;
+            Click += ControleDeDias1_Click;
             ResumeLayout(false);
             PerformLayout();
         }

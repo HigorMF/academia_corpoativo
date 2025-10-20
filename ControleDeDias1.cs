@@ -12,6 +12,7 @@ namespace academia_corpoativo
 {
     public partial class ControleDeDias1 : UserControl
     {
+        public static int static_dia;
         public ControleDeDias1()
         {
             InitializeComponent();
@@ -27,6 +28,11 @@ namespace academia_corpoativo
             lblDia.Text = numday + "";
         }
 
-        
+        private void ControleDeDias1_Click(object sender, EventArgs e)
+        {
+            static_dia = Convert.ToInt32(lblDia.Text);
+            EventoForms eventoForm = new EventoForms();
+            eventoForm.Show();
+        }
     }
 }
