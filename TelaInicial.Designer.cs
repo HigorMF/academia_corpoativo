@@ -29,41 +29,43 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            sidebar = new FlowLayoutPanel();
             panel1 = new Panel();
-            btHome = new Button();
+            lbMenu = new Label();
+            pictureBox1 = new PictureBox();
             panel2 = new Panel();
-            panel3 = new Panel();
-            btnLogin = new Button();
+            btHome = new Button();
             panel4 = new Panel();
             btnConheca = new Button();
             panel5 = new Panel();
-            button3 = new Button();
-            lbMenu = new Label();
-            pictureBox1 = new PictureBox();
-            sidebartimer = new System.Windows.Forms.Timer(components);
-            flowLayoutPanel1.SuspendLayout();
+            btnLogin = new Button();
+            panel3 = new Panel();
+            btnSobre = new Button();
+            sidebarTimer = new System.Windows.Forms.Timer(components);
+            sidebar.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // sidebar
             // 
-            flowLayoutPanel1.BackColor = Color.Black;
-            flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Controls.Add(panel2);
-            flowLayoutPanel1.Controls.Add(panel4);
-            flowLayoutPanel1.Controls.Add(panel5);
-            flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Dock = DockStyle.Left;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(193, 666);
-            flowLayoutPanel1.TabIndex = 0;
+            sidebar.BackColor = Color.Black;
+            sidebar.Controls.Add(panel1);
+            sidebar.Controls.Add(panel2);
+            sidebar.Controls.Add(panel4);
+            sidebar.Controls.Add(panel5);
+            sidebar.Controls.Add(panel3);
+            sidebar.Dock = DockStyle.Left;
+            sidebar.Location = new Point(0, 0);
+            sidebar.MaximumSize = new Size(193, 666);
+            sidebar.MinimumSize = new Size(68, 666);
+            sidebar.Name = "sidebar";
+            sidebar.Size = new Size(190, 666);
+            sidebar.TabIndex = 0;
             // 
             // panel1
             // 
@@ -74,89 +76,12 @@
             panel1.Size = new Size(190, 100);
             panel1.TabIndex = 0;
             // 
-            // btHome
-            // 
-            btHome.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btHome.Image = Properties.Resources.imagem;
-            btHome.Location = new Point(-114, -11);
-            btHome.Name = "btHome";
-            btHome.Size = new Size(316, 78);
-            btHome.TabIndex = 1;
-            btHome.Text = "                              Inicio";
-            btHome.UseVisualStyleBackColor = true;
-            btHome.Click += btHome_Click;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(btHome);
-            panel2.Location = new Point(3, 109);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(177, 52);
-            panel2.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(btnLogin);
-            panel3.Location = new Point(3, 283);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(177, 52);
-            panel3.TabIndex = 3;
-            // 
-            // btnLogin
-            // 
-            btnLogin.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Image = Properties.Resources.imagem;
-            btnLogin.Location = new Point(-114, -11);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(316, 78);
-            btnLogin.TabIndex = 1;
-            btnLogin.Text = "                              Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(btnConheca);
-            panel4.Location = new Point(3, 167);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(177, 52);
-            panel4.TabIndex = 4;
-            // 
-            // btnConheca
-            // 
-            btnConheca.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnConheca.Image = Properties.Resources.imagem;
-            btnConheca.Location = new Point(-114, -11);
-            btnConheca.Name = "btnConheca";
-            btnConheca.Size = new Size(316, 78);
-            btnConheca.TabIndex = 1;
-            btnConheca.Text = "                                      Funcionário";
-            btnConheca.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(button3);
-            panel5.Location = new Point(3, 225);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(177, 52);
-            panel5.TabIndex = 4;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Image = Properties.Resources.imagem;
-            button3.Location = new Point(-114, -11);
-            button3.Name = "button3";
-            button3.Size = new Size(316, 78);
-            button3.TabIndex = 1;
-            button3.Text = "                              Sobre";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // lbMenu
             // 
             lbMenu.AutoSize = true;
             lbMenu.BackColor = Color.Transparent;
             lbMenu.ForeColor = Color.White;
-            lbMenu.Location = new Point(83, 44);
+            lbMenu.Location = new Point(62, 25);
             lbMenu.Name = "lbMenu";
             lbMenu.Size = new Size(38, 15);
             lbMenu.TabIndex = 1;
@@ -171,33 +96,114 @@
             pictureBox1.Size = new Size(47, 45);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
-            // sidebartimer
+            // panel2
             // 
-            sidebartimer.Interval = 10;
+            panel2.Controls.Add(btHome);
+            panel2.Location = new Point(3, 109);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(177, 52);
+            panel2.TabIndex = 2;
+            // 
+            // btHome
+            // 
+            btHome.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btHome.Image = Properties.Resources.imagem;
+            btHome.Location = new Point(-127, -11);
+            btHome.Name = "btHome";
+            btHome.Size = new Size(316, 78);
+            btHome.TabIndex = 1;
+            btHome.Text = "                              Inicio";
+            btHome.UseVisualStyleBackColor = true;
+            btHome.Click += btHome_Click;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(btnConheca);
+            panel4.Location = new Point(3, 167);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(177, 52);
+            panel4.TabIndex = 4;
+            // 
+            // btnConheca
+            // 
+            btnConheca.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnConheca.Image = Properties.Resources.imagem;
+            btnConheca.Location = new Point(-127, -11);
+            btnConheca.Name = "btnConheca";
+            btnConheca.Size = new Size(316, 78);
+            btnConheca.TabIndex = 1;
+            btnConheca.Text = "                                      Funcionário";
+            btnConheca.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(btnLogin);
+            panel5.Location = new Point(3, 225);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(177, 52);
+            panel5.TabIndex = 4;
+            // 
+            // btnLogin
+            // 
+            btnLogin.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Image = Properties.Resources.imagem;
+            btnLogin.Location = new Point(-125, -11);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(316, 78);
+            btnLogin.TabIndex = 1;
+            btnLogin.Text = "                              Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(btnSobre);
+            panel3.Location = new Point(3, 283);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(177, 52);
+            panel3.TabIndex = 3;
+            // 
+            // btnSobre
+            // 
+            btnSobre.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSobre.Image = Properties.Resources.imagem;
+            btnSobre.Location = new Point(-126, -11);
+            btnSobre.Name = "btnSobre";
+            btnSobre.Size = new Size(316, 78);
+            btnSobre.TabIndex = 1;
+            btnSobre.Text = "                              Sobre";
+            btnSobre.UseVisualStyleBackColor = true;
+            // 
+            // sidebarTimer
+            // 
+            sidebarTimer.Interval = 10;
+            sidebarTimer.Tick += sidebartimer_Tick;
             // 
             // TelaInicial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1064, 666);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(sidebar);
             Name = "TelaInicial";
             Text = "TelaInicial";
-            flowLayoutPanel1.ResumeLayout(false);
+            Load += TelaInicial_Load;
+            sidebar.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel sidebar;
         private Panel panel1;
         private Button btHome;
         private Panel panel2;
@@ -206,9 +212,9 @@
         private Panel panel4;
         private Button btnConheca;
         private Panel panel5;
-        private Button button3;
-        private Panel panel3;
         private Button btnLogin;
-        private System.Windows.Forms.Timer sidebartimer;
+        private Panel panel3;
+        private Button btnSobre;
+        private System.Windows.Forms.Timer sidebarTimer;
     }
 }
