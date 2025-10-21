@@ -83,7 +83,7 @@
             // dataCalendarioPesquisa
             // 
             dataCalendarioPesquisa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataCalendarioPesquisa.Location = new Point(12, 199);
+            dataCalendarioPesquisa.Location = new Point(12, 185);
             dataCalendarioPesquisa.Name = "dataCalendarioPesquisa";
             dataCalendarioPesquisa.Size = new Size(984, 446);
             dataCalendarioPesquisa.TabIndex = 6;
