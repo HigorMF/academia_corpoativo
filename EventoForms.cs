@@ -23,7 +23,7 @@ namespace academia_corpoativo
 
         private void EventoForms_Load(object sender, EventArgs e)
         {
-            txtData.Text = ControleDeDias1.static_dia + "/" + Calendario.static_mes + "/" + Calendario.static_ano;
+            txtData.Text = Calendario.static_ano + "/" + Calendario.static_mes + "/" + ControleDeDias1.static_dia;
         }
         
 

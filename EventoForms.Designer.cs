@@ -28,20 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtHorario = new TextBox();
             txtData = new TextBox();
             label1 = new Label();
             label2 = new Label();
             btoSalvar = new Button();
+            txtHorario = new MaskedTextBox();
             SuspendLayout();
-            // 
-            // txtHorario
-            // 
-            txtHorario.Font = new Font("Monospac821 BT", 12F);
-            txtHorario.Location = new Point(174, 152);
-            txtHorario.Name = "txtHorario";
-            txtHorario.Size = new Size(297, 27);
-            txtHorario.TabIndex = 0;
             // 
             // txtData
             // 
@@ -80,16 +72,26 @@
             btoSalvar.UseVisualStyleBackColor = true;
             btoSalvar.Click += btoSalvar_Click;
             // 
+            // txtHorario
+            // 
+            txtHorario.Font = new Font("Monospac821 BT", 12F);
+            txtHorario.Location = new Point(174, 150);
+            txtHorario.Mask = "00:00";
+            txtHorario.Name = "txtHorario";
+            txtHorario.Size = new Size(208, 27);
+            txtHorario.TabIndex = 6;
+            txtHorario.ValidatingType = typeof(DateTime);
+            // 
             // EventoForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(651, 294);
+            Controls.Add(txtHorario);
             Controls.Add(btoSalvar);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtData);
-            Controls.Add(txtHorario);
             Name = "EventoForms";
             Text = "EventoForms";
             Load += EventoForms_Load;
@@ -98,11 +100,10 @@
         }
 
         #endregion
-
-        private TextBox txtHorario;
         private TextBox txtData;
         private Label label1;
         private Label label2;
         private Button btoSalvar;
+        private MaskedTextBox txtHorario;
     }
 }

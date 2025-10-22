@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lblDia = new Label();
+            lblInformacao = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // lblDia
@@ -41,11 +44,24 @@
             lblDia.TabIndex = 1;
             lblDia.Text = "00";
             // 
+            // lblInformacao
+            // 
+            lblInformacao.Location = new Point(13, 45);
+            lblInformacao.Name = "lblInformacao";
+            lblInformacao.Size = new Size(109, 37);
+            lblInformacao.TabIndex = 2;
+            lblInformacao.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // ControleDeDias1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(lblInformacao);
             Controls.Add(lblDia);
             Name = "ControleDeDias1";
             Size = new Size(134, 90);
@@ -58,5 +74,7 @@
         #endregion
 
         private Label lblDia;
+        private Label lblInformacao;
+        private System.Windows.Forms.Timer timer1;
     }
 }
