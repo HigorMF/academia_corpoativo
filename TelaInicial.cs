@@ -63,5 +63,9 @@ namespace academia_corpoativo
             Login login = new Login();
             login.Show();
         }
+
+        private void btnConheca_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

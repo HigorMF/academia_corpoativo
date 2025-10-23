@@ -120,6 +120,7 @@
             Controls.Add(btn_BuscarCadastroAluno);
             Name = "DadosCadastroAluno";
             Text = "DadosCadastroAluno";
+            Load += DadosCadastroAluno_Load;
             ((System.ComponentModel.ISupportInitialize)dataCalendarioPesquisa).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,8 +20,38 @@ namespace academia_corpoativo
 
         private void dataCalendarioPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Conexao conexao = new Conexao();
 
+        }
+
+        private void DadosCadastroAluno_Load(object sender, EventArgs e)
+        {
+            CarregarDados();
+        }
+
+        private void CarregarDados()
+        {
+            {
+                Conexao conexao = new Conexao();
+                string query = @"SELECT id_pagamento, id_plano, data_pagamento, valor, forma_pagamento, status_pagamento FROM pagamento";
+                using (MySqlConnection con = conexao.GetConnection())
+                {
+                    try
+                    {
+                        con.Open();
+
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        dataCalendarioPesquisa.DataSource = dt;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao carregar aluno: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }

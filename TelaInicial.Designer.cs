@@ -136,6 +136,7 @@
             btnConheca.TabIndex = 1;
             btnConheca.Text = "                                      Funcionário";
             btnConheca.UseVisualStyleBackColor = true;
+            btnConheca.Click += btnConheca_Click;
             // 
             // panel5
             // 
@@ -185,7 +186,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1064, 666);
+            ClientSize = new Size(1064, 550);
             Controls.Add(sidebar);
             Name = "TelaInicial";
             Text = "TelaInicial";
