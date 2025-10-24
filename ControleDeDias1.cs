@@ -13,8 +13,10 @@ namespace academia_corpoativo
 {
     public partial class ControleDeDias1 : UserControl
     {
+        
 
         String connString = "server=10.37.44.29; user id = root; password=root;database=corpo_ativo";
+
 
         public static int static_dia;
         public ControleDeDias1()
@@ -45,13 +47,14 @@ namespace academia_corpoativo
         {
             MySqlConnection conn = new MySqlConnection(connString);
             conn.Open();
-            String sql = "SELECT * FROM tbl_calendar where date = ?";
+            String sql = "SELECT * FROM agendamento where data_agendada = ?";
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.Parameters.AddWithValue("@data_agendada", Calendario.static_ano + "/" + Calendario.static_mes + "/");
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("data_agendada", Calendario.static_ano + "-" + Calendario.static_mes + "-" + lblDia.Text);
             MySqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                lblInformacao.Text = reader["evento"].ToString();
+                lblInformacao.Text = reader["sobre"].ToString();
             }
             reader.Dispose();
             cmd.Dispose();
@@ -61,6 +64,12 @@ namespace academia_corpoativo
         private void timer1_Tick(object sender, EventArgs e)
         {
             displayInformacao();
+        }
+
+
+        private void lblInformacao_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
