@@ -40,6 +40,7 @@
             label1 = new Label();
             btnBuscar = new Button();
             btnFrequencia = new Button();
+            lbLogout = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgPagamento).BeginInit();
@@ -131,7 +132,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(352, 29);
+            label1.Location = new Point(352, 51);
             label1.Name = "label1";
             label1.Size = new Size(173, 28);
             label1.TabIndex = 13;
@@ -149,7 +150,7 @@
             // 
             // btnFrequencia
             // 
-            btnFrequencia.Location = new Point(352, 74);
+            btnFrequencia.Location = new Point(352, 94);
             btnFrequencia.Name = "btnFrequencia";
             btnFrequencia.Size = new Size(545, 23);
             btnFrequencia.TabIndex = 15;
@@ -157,11 +158,24 @@
             btnFrequencia.UseVisualStyleBackColor = true;
             btnFrequencia.Click += btnFrequencia_Click;
             // 
+            // lbLogout
+            // 
+            lbLogout.AutoSize = true;
+            lbLogout.Font = new Font("Segoe UI", 11F);
+            lbLogout.LinkColor = Color.Black;
+            lbLogout.Location = new Point(841, 9);
+            lbLogout.Name = "lbLogout";
+            lbLogout.Size = new Size(56, 20);
+            lbLogout.TabIndex = 16;
+            lbLogout.TabStop = true;
+            lbLogout.Text = "Logout";
+            // 
             // Aluno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(918, 641);
+            Controls.Add(lbLogout);
             Controls.Add(btnFrequencia);
             Controls.Add(btnBuscar);
             Controls.Add(label1);
@@ -195,5 +209,6 @@
         private Label label1;
         private Button btnBuscar;
         private Button btnFrequencia;
+        private LinkLabel lbLogout;
     }
 }
