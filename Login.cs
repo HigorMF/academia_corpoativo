@@ -101,10 +101,7 @@ namespace academia_corpoativo
                         {
                             MessageBox.Show("Email ou senha incorretos!");
                         }
-
-
                     }
-
                 }
             }
         }

@@ -46,6 +46,7 @@ namespace academia_corpoativo
 
         private void Aluno_Load(object sender, EventArgs e)
         {
+
             try
             {
                 using (MySqlConnection con = new Conexao().GetConnection())
@@ -61,48 +62,44 @@ namespace academia_corpoativo
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
+
+            CarregarPagamentosAluno();
+
         }
 
-        private void CarregarPlano()
+        private int _idAluno;
+
+        public Aluno(string nome, string matricula, string plano, int idAluno)
         {
+            InitializeComponent();
+
+            lbNome.Text = nome;
+            lbNumeroMatricula.Text = matricula;
+            label2.Text = plano;
+
+            _idAluno = idAluno;
+        }
+
+        private void CarregarPagamentosAluno()
+        {
+            using (var con = new Conexao().GetConnection())
             {
-                {
-                    try
-                    {
-                        using (MySqlConnection con = new Conexao().GetConnection())
-                        {
-                            con.Open();
+                con.Open();
+                string query = @"SELECT p.id_pagamento, p.data_pagamento, p.valor,
+                        p.forma_pagamento, p.status_pagamento
+                         FROM pagamento p
+                         INNER JOIN matricula m ON p.id_plano = m.id_plano
+                         WHERE m.id_cadastro_login = @idAluno";
 
-                            string query = @"SELECT id_pagamento, id_plano, data_pagamento, valor, forma_pagamento, status_pagamento 
-                             FROM pagamento";
+                      var cmd = new MySqlCommand(query, con);
+                      cmd.Parameters.AddWithValue("@idAluno", _idAluno);
 
-                            // Se o campo tiver algo digitado, filtra
-                            if (!string.IsNullOrWhiteSpace(btnBuscar.Text))
-                            {
-                                query += " WHERE id_plano = @id_plano";
-                            }
+                      var da = new MySqlDataAdapter(cmd);
+                      var dt = new DataTable();
+                      da.Fill(dt);
 
-                            MySqlCommand cmd = new MySqlCommand(query, con);
-
-                            if (!string.IsNullOrWhiteSpace(btnBuscar.Text))
-                                cmd.Parameters.AddWithValue("@id_plano", btnBuscar.Text);
-
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-
-                            dataCalendarioPesquisa.DataSource = dt;
-
-                            if (dt.Rows.Count == 0)
-                                MessageBox.Show("Nenhum registro encontrado.");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro ao buscar dados: " + ex.Message);
-                    }
+                    dgPagamento.DataSource = dt;
                 }
             }
         }
     }
-}
