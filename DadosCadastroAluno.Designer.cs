@@ -29,97 +29,59 @@
         private void InitializeComponent()
         {
             btn_BuscarCadastroAluno = new Button();
-            txtBuscaAluno = new TextBox();
-            lb_CPF = new Label();
-            lb_ID = new Label();
-            txtBuscarIDAluno = new TextBox();
             dataCalendarioPesquisa = new DataGridView();
-            lbEmail = new Label();
-            txtBuscarEmailAluno = new TextBox();
+            label1 = new Label();
+            txtIdPlano = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataCalendarioPesquisa).BeginInit();
             SuspendLayout();
             // 
             // btn_BuscarCadastroAluno
             // 
-            btn_BuscarCadastroAluno.Location = new Point(867, 156);
+            btn_BuscarCadastroAluno.Location = new Point(871, 47);
             btn_BuscarCadastroAluno.Name = "btn_BuscarCadastroAluno";
             btn_BuscarCadastroAluno.Size = new Size(75, 23);
             btn_BuscarCadastroAluno.TabIndex = 1;
             btn_BuscarCadastroAluno.Text = "Buscar";
             btn_BuscarCadastroAluno.UseVisualStyleBackColor = true;
-            // 
-            // txtBuscaAluno
-            // 
-            txtBuscaAluno.Location = new Point(47, 60);
-            txtBuscaAluno.Name = "txtBuscaAluno";
-            txtBuscaAluno.Size = new Size(306, 23);
-            txtBuscaAluno.TabIndex = 2;
-            // 
-            // lb_CPF
-            // 
-            lb_CPF.AutoSize = true;
-            lb_CPF.Location = new Point(47, 42);
-            lb_CPF.Name = "lb_CPF";
-            lb_CPF.Size = new Size(63, 15);
-            lb_CPF.TabIndex = 3;
-            lb_CPF.Text = "CPF Aluno";
-            // 
-            // lb_ID
-            // 
-            lb_ID.AutoSize = true;
-            lb_ID.Location = new Point(475, 42);
-            lb_ID.Name = "lb_ID";
-            lb_ID.Size = new Size(53, 15);
-            lb_ID.TabIndex = 5;
-            lb_ID.Text = "ID Aluno";
-            // 
-            // txtBuscarIDAluno
-            // 
-            txtBuscarIDAluno.Location = new Point(475, 60);
-            txtBuscarIDAluno.Name = "txtBuscarIDAluno";
-            txtBuscarIDAluno.Size = new Size(356, 23);
-            txtBuscarIDAluno.TabIndex = 4;
+            btn_BuscarCadastroAluno.Click += btn_BuscarCadastroAluno_Click;
             // 
             // dataCalendarioPesquisa
             // 
             dataCalendarioPesquisa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataCalendarioPesquisa.Location = new Point(12, 185);
+            dataCalendarioPesquisa.Location = new Point(12, 96);
             dataCalendarioPesquisa.Name = "dataCalendarioPesquisa";
-            dataCalendarioPesquisa.Size = new Size(984, 446);
+            dataCalendarioPesquisa.Size = new Size(984, 535);
             dataCalendarioPesquisa.TabIndex = 6;
             dataCalendarioPesquisa.CellContentClick += dataCalendarioPesquisa_CellContentClick;
             // 
-            // lbEmail
+            // label1
             // 
-            lbEmail.AutoSize = true;
-            lbEmail.Location = new Point(47, 109);
-            lbEmail.Name = "lbEmail";
-            lbEmail.Size = new Size(71, 15);
-            lbEmail.TabIndex = 8;
-            lbEmail.Text = "Email Aluno";
+            label1.AutoSize = true;
+            label1.Location = new Point(30, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 15);
+            label1.TabIndex = 7;
+            label1.Text = "ID Plano";
             // 
-            // txtBuscarEmailAluno
+            // txtIdPlano
             // 
-            txtBuscarEmailAluno.Location = new Point(47, 127);
-            txtBuscarEmailAluno.Name = "txtBuscarEmailAluno";
-            txtBuscarEmailAluno.Size = new Size(306, 23);
-            txtBuscarEmailAluno.TabIndex = 7;
+            txtIdPlano.Location = new Point(30, 47);
+            txtIdPlano.Name = "txtIdPlano";
+            txtIdPlano.Size = new Size(501, 23);
+            txtIdPlano.TabIndex = 8;
             // 
             // DadosCadastroAluno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1008, 682);
-            Controls.Add(lbEmail);
-            Controls.Add(txtBuscarEmailAluno);
+            Controls.Add(txtIdPlano);
+            Controls.Add(label1);
             Controls.Add(dataCalendarioPesquisa);
-            Controls.Add(lb_ID);
-            Controls.Add(txtBuscarIDAluno);
-            Controls.Add(lb_CPF);
-            Controls.Add(txtBuscaAluno);
             Controls.Add(btn_BuscarCadastroAluno);
             Name = "DadosCadastroAluno";
             Text = "DadosCadastroAluno";
+            Load += DadosCadastroAluno_Load;
             ((System.ComponentModel.ISupportInitialize)dataCalendarioPesquisa).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -129,12 +91,8 @@
 
         private ListBox listBox1;
         private Button btn_BuscarCadastroAluno;
-        private TextBox txtBuscaAluno;
-        private Label lb_CPF;
-        private Label lb_ID;
-        private TextBox txtBuscarIDAluno;
         private DataGridView dataCalendarioPesquisa;
-        private Label lbEmail;
-        private TextBox txtBuscarEmailAluno;
+        private Label label1;
+        private TextBox txtIdPlano;
     }
 }

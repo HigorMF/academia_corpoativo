@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace academia_corpoativo
 {
-    public partial class ControleDeUso : UserControl
+    public partial class CadastroPlanoOuro: Form
     {
-        public ControleDeUso()
+        public CadastroPlanoOuro()
         {
             InitializeComponent();
-        }
-
-        private void ControleDeUso_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
