@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace academia_corpoativo
 {
-    public partial class ControleDeUso: UserControl
+    public partial class ControleDeUso : UserControl
     {
         public ControleDeUso()
         {
             InitializeComponent();
+        }
+
+        private void ControleDeUso_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

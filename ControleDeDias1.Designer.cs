@@ -46,11 +46,14 @@
             // 
             // lblInformacao
             // 
-            lblInformacao.Location = new Point(13, 45);
+            lblInformacao.AutoSize = true;
+            lblInformacao.Enabled = false;
+            lblInformacao.Location = new Point(16, 31);
             lblInformacao.Name = "lblInformacao";
-            lblInformacao.Size = new Size(109, 37);
+            lblInformacao.Size = new Size(0, 15);
             lblInformacao.TabIndex = 2;
             lblInformacao.TextAlign = ContentAlignment.MiddleCenter;
+            lblInformacao.Click += lblInformacao_Click;
             // 
             // timer1
             // 

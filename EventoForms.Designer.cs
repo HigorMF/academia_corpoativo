@@ -30,9 +30,11 @@
         {
             txtData = new TextBox();
             label1 = new Label();
-            label2 = new Label();
             btoSalvar = new Button();
-            txtHorario = new MaskedTextBox();
+            label2 = new Label();
+            txtHorario = new TextBox();
+            label3 = new Label();
+            cboProfessores = new ComboBox();
             SuspendLayout();
             // 
             // txtData
@@ -53,15 +55,6 @@
             label1.TabIndex = 3;
             label1.Text = "Data:";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(174, 120);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Horario:";
-            // 
             // btoSalvar
             // 
             btoSalvar.Location = new Point(412, 211);
@@ -72,24 +65,50 @@
             btoSalvar.UseVisualStyleBackColor = true;
             btoSalvar.Click += btoSalvar_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(114, 193);
+            label2.Name = "label2";
+            label2.Size = new Size(40, 15);
+            label2.TabIndex = 9;
+            label2.Text = "Sobre:";
+            // 
             // txtHorario
             // 
             txtHorario.Font = new Font("Monospac821 BT", 12F);
-            txtHorario.Location = new Point(174, 150);
-            txtHorario.Mask = "00:00";
+            txtHorario.Location = new Point(114, 220);
             txtHorario.Name = "txtHorario";
-            txtHorario.Size = new Size(208, 27);
-            txtHorario.TabIndex = 6;
-            txtHorario.ValidatingType = typeof(DateTime);
+            txtHorario.Size = new Size(139, 27);
+            txtHorario.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(117, 105);
+            label3.Name = "label3";
+            label3.Size = new Size(59, 15);
+            label3.TabIndex = 12;
+            label3.Text = "Professor:";
+            // 
+            // cboProfessores
+            // 
+            cboProfessores.FormattingEnabled = true;
+            cboProfessores.Location = new Point(142, 147);
+            cboProfessores.Name = "cboProfessores";
+            cboProfessores.Size = new Size(121, 23);
+            cboProfessores.TabIndex = 14;
             // 
             // EventoForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(651, 294);
+            Controls.Add(cboProfessores);
+            Controls.Add(label3);
             Controls.Add(txtHorario);
-            Controls.Add(btoSalvar);
             Controls.Add(label2);
+            Controls.Add(btoSalvar);
             Controls.Add(label1);
             Controls.Add(txtData);
             Name = "EventoForms";
@@ -102,8 +121,10 @@
         #endregion
         private TextBox txtData;
         private Label label1;
-        private Label label2;
         private Button btoSalvar;
-        private MaskedTextBox txtHorario;
+        private Label label2;
+        private TextBox txtHorario;
+        private Label label3;
+        private ComboBox cboProfessores;
     }
 }
