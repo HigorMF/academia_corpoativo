@@ -34,7 +34,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1058, 615);
+            ClientSize = new Size(1075, 628);
             Name = "CadastroPlanoOuro";
             Text = "CadastroPlanoOuro";
             ResumeLayout(false);

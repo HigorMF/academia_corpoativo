@@ -39,9 +39,6 @@ namespace academia_corpoativo
                     MySqlDataAdapter da = new MySqlDataAdapter(query, con);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-
-                    MessageBox.Show("Registros carregados: " + dt.Rows.Count);
-                    dataCalendarioPesquisa.DataSource = dt;
                 }
             }
             catch (Exception ex)

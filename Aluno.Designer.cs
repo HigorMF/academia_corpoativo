@@ -31,15 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aluno));
             lbNome = new Label();
             lbNumeroMatricula = new Label();
-            lbPlano = new Label();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
             montAgendamentoCliente = new MonthCalendar();
-            lstPlanoCliente = new ListBox();
             pictureBox2 = new PictureBox();
             label2 = new Label();
+            dgPagamento = new DataGridView();
+            lbPagamento = new Label();
+            label1 = new Label();
+            btnBuscar = new Button();
+            btnFrequencia = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgPagamento).BeginInit();
             SuspendLayout();
             // 
             // lbNome
@@ -68,28 +71,6 @@
             lbNumeroMatricula.Text = "Matrícula";
             lbNumeroMatricula.Click += lbNumeroMatricula_Click;
             // 
-            // lbPlano
-            // 
-            lbPlano.AutoSize = true;
-            lbPlano.Font = new Font("Microsoft Himalaya", 21.75F);
-            lbPlano.Location = new Point(356, 263);
-            lbPlano.Name = "lbPlano";
-            lbPlano.Size = new Size(121, 29);
-            lbPlano.TabIndex = 4;
-            lbPlano.Text = "Treinamentos";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Black;
-            label1.Font = new Font("Microsoft Himalaya", 21.75F);
-            label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(53, 359);
-            label1.Name = "label1";
-            label1.Size = new Size(185, 29);
-            label1.TabIndex = 5;
-            label1.Text = "Agendamento Cliente";
-            // 
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.ActiveCaptionText;
@@ -101,18 +82,9 @@
             // 
             // montAgendamentoCliente
             // 
-            montAgendamentoCliente.Location = new Point(34, 409);
+            montAgendamentoCliente.Location = new Point(34, 382);
             montAgendamentoCliente.Name = "montAgendamentoCliente";
             montAgendamentoCliente.TabIndex = 7;
-            // 
-            // lstPlanoCliente
-            // 
-            lstPlanoCliente.FormattingEnabled = true;
-            lstPlanoCliente.ItemHeight = 15;
-            lstPlanoCliente.Location = new Point(356, 295);
-            lstPlanoCliente.Name = "lstPlanoCliente";
-            lstPlanoCliente.Size = new Size(525, 289);
-            lstPlanoCliente.TabIndex = 8;
             // 
             // pictureBox2
             // 
@@ -137,24 +109,76 @@
             label2.TabIndex = 10;
             label2.Text = "Plano Cliente";
             // 
+            // dgPagamento
+            // 
+            dgPagamento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgPagamento.Location = new Point(352, 275);
+            dgPagamento.Name = "dgPagamento";
+            dgPagamento.Size = new Size(527, 292);
+            dgPagamento.TabIndex = 11;
+            // 
+            // lbPagamento
+            // 
+            lbPagamento.AutoSize = true;
+            lbPagamento.Font = new Font("Segoe UI", 15F);
+            lbPagamento.Location = new Point(352, 244);
+            lbPagamento.Name = "lbPagamento";
+            lbPagamento.Size = new Size(111, 28);
+            lbPagamento.TabIndex = 12;
+            lbPagamento.Text = "Pagamento";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F);
+            label1.Location = new Point(352, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(173, 28);
+            label1.TabIndex = 13;
+            label1.Text = "Marcar Frequência";
+            label1.Click += label1_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(804, 573);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 14;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // btnFrequencia
+            // 
+            btnFrequencia.Location = new Point(352, 74);
+            btnFrequencia.Name = "btnFrequencia";
+            btnFrequencia.Size = new Size(545, 23);
+            btnFrequencia.TabIndex = 15;
+            btnFrequencia.Text = "Marcar Frequência";
+            btnFrequencia.UseVisualStyleBackColor = true;
+            btnFrequencia.Click += btnFrequencia_Click;
+            // 
             // Aluno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(918, 641);
+            Controls.Add(btnFrequencia);
+            Controls.Add(btnBuscar);
+            Controls.Add(label1);
+            Controls.Add(lbPagamento);
+            Controls.Add(dgPagamento);
             Controls.Add(label2);
             Controls.Add(pictureBox2);
-            Controls.Add(lstPlanoCliente);
             Controls.Add(montAgendamentoCliente);
-            Controls.Add(label1);
-            Controls.Add(lbPlano);
             Controls.Add(lbNumeroMatricula);
             Controls.Add(lbNome);
             Controls.Add(pictureBox1);
             Name = "Aluno";
             Text = "Aluno";
+            Load += Aluno_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgPagamento).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -162,12 +186,14 @@
         #endregion
         private Label lbNome;
         private Label lbNumeroMatricula;
-        private Label lbPlano;
-        private Label label1;
         private PictureBox pictureBox1;
         private MonthCalendar montAgendamentoCliente;
-        private ListBox lstPlanoCliente;
         private PictureBox pictureBox2;
         private Label label2;
+        private DataGridView dgPagamento;
+        private Label lbPagamento;
+        private Label label1;
+        private Button btnBuscar;
+        private Button btnFrequencia;
     }
 }
