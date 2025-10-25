@@ -86,12 +86,12 @@ namespace academia_corpoativo
             {
                 con.Open();
                 string query = @"SELECT p.id_pagamento, p.data_pagamento, p.valor,
-                        p.forma_pagamento, p.status_pagamento
-                         FROM pagamento p
-                         INNER JOIN matricula m ON p.id_plano = m.id_plano
-                         WHERE m.id_cadastro_login = @idAluno";
+                               p.forma_pagamento, p.status_pagamento
+                               FROM pagamento p
+                               INNER JOIN plano pl ON p.id_plano = pl.id_plano
+                               WHERE pl.id_cadastro_login = @idAluno";
 
-                      var cmd = new MySqlCommand(query, con);
+                var cmd = new MySqlCommand(query, con);
                       cmd.Parameters.AddWithValue("@idAluno", _idAluno);
 
                       var da = new MySqlDataAdapter(cmd);
