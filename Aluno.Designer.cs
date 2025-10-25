@@ -41,20 +41,22 @@
             btnBuscar = new Button();
             btnFrequencia = new Button();
             lbLogout = new LinkLabel();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgPagamento).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lbNome
             // 
             lbNome.AutoSize = true;
             lbNome.BackColor = SystemColors.ActiveCaptionText;
-            lbNome.Font = new Font("Microsoft Himalaya", 21.75F);
+            lbNome.Font = new Font("Microsoft Uighur", 20.25F);
             lbNome.ForeColor = SystemColors.ButtonHighlight;
             lbNome.Location = new Point(34, 192);
             lbNome.Name = "lbNome";
-            lbNome.Size = new Size(61, 29);
+            lbNome.Size = new Size(61, 36);
             lbNome.TabIndex = 2;
             lbNome.Text = "Nome";
             lbNome.Click += lbNome_Click;
@@ -63,11 +65,11 @@
             // 
             lbNumeroMatricula.AutoSize = true;
             lbNumeroMatricula.BackColor = SystemColors.ActiveCaptionText;
-            lbNumeroMatricula.Font = new Font("Microsoft Himalaya", 21.75F);
+            lbNumeroMatricula.Font = new Font("Microsoft Uighur", 20.25F);
             lbNumeroMatricula.ForeColor = SystemColors.ButtonHighlight;
             lbNumeroMatricula.Location = new Point(34, 234);
             lbNumeroMatricula.Name = "lbNumeroMatricula";
-            lbNumeroMatricula.Size = new Size(88, 29);
+            lbNumeroMatricula.Size = new Size(89, 36);
             lbNumeroMatricula.TabIndex = 3;
             lbNumeroMatricula.Text = "Matrícula";
             lbNumeroMatricula.Click += lbNumeroMatricula_Click;
@@ -102,11 +104,11 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ActiveCaptionText;
-            label2.Font = new Font("Microsoft Himalaya", 21.75F);
+            label2.Font = new Font("Microsoft Uighur", 20.25F);
             label2.ForeColor = Color.Transparent;
             label2.Location = new Point(34, 275);
             label2.Name = "label2";
-            label2.Size = new Size(119, 29);
+            label2.Size = new Size(117, 36);
             label2.TabIndex = 10;
             label2.Text = "Plano Cliente";
             // 
@@ -121,20 +123,20 @@
             // lbPagamento
             // 
             lbPagamento.AutoSize = true;
-            lbPagamento.Font = new Font("Segoe UI", 15F);
-            lbPagamento.Location = new Point(352, 244);
+            lbPagamento.Font = new Font("Microsoft Uighur", 20.25F);
+            lbPagamento.Location = new Point(352, 234);
             lbPagamento.Name = "lbPagamento";
-            lbPagamento.Size = new Size(111, 28);
+            lbPagamento.Size = new Size(99, 36);
             lbPagamento.TabIndex = 12;
             lbPagamento.Text = "Pagamento";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F);
+            label1.Font = new Font("Microsoft Uighur", 20.25F);
             label1.Location = new Point(352, 51);
             label1.Name = "label1";
-            label1.Size = new Size(173, 28);
+            label1.Size = new Size(158, 36);
             label1.TabIndex = 13;
             label1.Text = "Marcar Frequência";
             label1.Click += label1_Click;
@@ -150,9 +152,9 @@
             // 
             // btnFrequencia
             // 
-            btnFrequencia.Location = new Point(352, 94);
+            btnFrequencia.Location = new Point(715, 54);
             btnFrequencia.Name = "btnFrequencia";
-            btnFrequencia.Size = new Size(545, 23);
+            btnFrequencia.Size = new Size(164, 29);
             btnFrequencia.TabIndex = 15;
             btnFrequencia.Text = "Marcar Frequência";
             btnFrequencia.UseVisualStyleBackColor = true;
@@ -170,11 +172,20 @@
             lbLogout.TabStop = true;
             lbLogout.Text = "Logout";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(352, 90);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(527, 141);
+            dataGridView1.TabIndex = 17;
+            // 
             // Aluno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(918, 641);
+            Controls.Add(dataGridView1);
             Controls.Add(lbLogout);
             Controls.Add(btnFrequencia);
             Controls.Add(btnBuscar);
@@ -193,6 +204,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgPagamento).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -210,5 +222,6 @@
         private Button btnBuscar;
         private Button btnFrequencia;
         private LinkLabel lbLogout;
+        private DataGridView dataGridView1;
     }
 }

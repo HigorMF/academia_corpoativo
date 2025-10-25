@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaInicial));
             sidebar = new FlowLayoutPanel();
             panel1 = new Panel();
             lbMenu = new Label();
@@ -90,8 +91,8 @@
             // pictureBox1
             // 
             pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = Properties.Resources.imagem;
-            pictureBox1.Location = new Point(9, 25);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(9, 9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(47, 45);
             pictureBox1.TabIndex = 2;
@@ -109,7 +110,7 @@
             // btHome
             // 
             btHome.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btHome.Image = Properties.Resources.imagem;
+            btHome.Image = (Image)resources.GetObject("btHome.Image");
             btHome.Location = new Point(-127, -11);
             btHome.Name = "btHome";
             btHome.Size = new Size(316, 78);
@@ -129,7 +130,7 @@
             // btnConheca
             // 
             btnConheca.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnConheca.Image = Properties.Resources.imagem;
+            btnConheca.Image = (Image)resources.GetObject("btnConheca.Image");
             btnConheca.Location = new Point(-127, -11);
             btnConheca.Name = "btnConheca";
             btnConheca.Size = new Size(316, 78);
@@ -149,7 +150,7 @@
             // btnLogin
             // 
             btnLogin.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Image = Properties.Resources.imagem;
+            btnLogin.Image = (Image)resources.GetObject("btnLogin.Image");
             btnLogin.Location = new Point(-125, -11);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(316, 78);
@@ -169,7 +170,7 @@
             // btnSobre
             // 
             btnSobre.Font = new Font("Bodoni Bk BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSobre.Image = Properties.Resources.imagem;
+            btnSobre.Image = (Image)resources.GetObject("btnSobre.Image");
             btnSobre.Location = new Point(-126, -11);
             btnSobre.Name = "btnSobre";
             btnSobre.Size = new Size(316, 78);

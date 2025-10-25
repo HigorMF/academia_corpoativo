@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace academia_corpoativo
 {
-    public partial class CadastroPlanoOuro: Form
+    public partial class CadastroPlanoOuro : Form
     {
         public CadastroPlanoOuro()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
