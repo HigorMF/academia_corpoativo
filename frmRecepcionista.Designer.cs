@@ -49,6 +49,7 @@
             btnCalendario.TabIndex = 0;
             btnCalendario.Text = "Calendário";
             btnCalendario.UseVisualStyleBackColor = false;
+            btnCalendario.Click += btnCalendario_Click;
             // 
             // btnCadastro
             // 
@@ -72,6 +73,7 @@
             btnCliente.TabIndex = 2;
             btnCliente.Text = "Cliente";
             btnCliente.UseVisualStyleBackColor = false;
+            btnCliente.Click += btnCliente_Click;
             // 
             // panel2
             // 

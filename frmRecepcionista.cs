@@ -23,5 +23,17 @@ namespace academia_corpoativo
             CadastroAluno Aluno = new CadastroAluno();
             Aluno.ShowDialog();
         }
+
+        private void btnCalendario_Click(object sender, EventArgs e)
+        {
+            Calendario Calendario = new Calendario();
+            Calendario.ShowDialog();
+        }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            DadosCadastroAluno DCA = new DadosCadastroAluno();
+            DCA.ShowDialog();
+        }
     }
 }
