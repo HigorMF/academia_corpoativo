@@ -14,6 +14,13 @@ namespace academia_corpoativo
 {
     public partial class Frequencia : Form
     {
+
+        private int _idAluno;
+        private int _idTurma;
+        private DateTime _data;
+        private Aluno _formAluno;
+
+
         public Frequencia()
         {
             InitializeComponent();
@@ -21,52 +28,41 @@ namespace academia_corpoativo
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Conexao conexao = new Conexao();
-            using (var conn = conexao.GetConnection())
+            using (var conn = new Conexao().GetConnection())
             {
-                var ID_Aluno = txtID_Aluno.Text.Trim();
-                var ID_Turma = txtID_Turma.Text.Trim();
-                var Data = mtbData.Text.Trim();
-                var Entrada = mtbEntrada.Text.Trim();
-                var Saida = mtbSaida.Text.Trim();
+                string Sql = @"INSERT INTO frequencia 
+                        (id_cadastro_login, id_turma, data_frequencia, entrada, saida)
+                        VALUES (@idAluno, @idTurma, @data, @entrada, @saida)";
 
-                string Sql = "INSERT INTO frequencia (id_aluno, id_turma, data, entrada, saida) VALUES(@id_aluno, @id_turma, @data, @entrada, @saida)";
                 using (var cmd = new MySqlCommand(Sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id_aluno", ID_Aluno);
-                    cmd.Parameters.AddWithValue("@id_turma", ID_Turma);
-                    cmd.Parameters.AddWithValue("@data", Data);
-                    cmd.Parameters.AddWithValue("@entrada", Entrada);
-                    cmd.Parameters.AddWithValue("@saida", Saida);
+                    cmd.Parameters.AddWithValue("@idAluno", _idAluno);
+                    cmd.Parameters.AddWithValue("@idTurma", _idTurma);
+                    cmd.Parameters.AddWithValue("@data", _data.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@entrada", mtbEntrada.Text.Trim());
+                    cmd.Parameters.AddWithValue("@saida", mtbSaida.Text.Trim());
 
-                    try
-                    {
-                        conn.Open();
-                        int rows = cmd.ExecuteNonQuery();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
 
-                        if (rows > 0)
+                    // Atualiza o calendário do FormAluno ✅
+                    _formAluno.AtualizarCalendario(_data);
 
-                            MessageBox.Show("Frequencia cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        else
-                            MessageBox.Show("Nenhum registro foi inserido. Verifique os dados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    }
-                    catch (MySqlException ex)
-                    {
-                        MessageBox.Show("Erro ao inserir dados no banco de dados:" + ex.Message, "Erro de banco", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Ocorreu um erro inesperado: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        if (conn.State == ConnectionState.Open)
-                            conn.Close();
-                    }
+                    MessageBox.Show("Frequência registrada com sucesso!");
+                    this.Close();
                 }
             }
+        }
+
+
+
+        public Frequencia(int idAluno, int idTurma, DateTime data, Aluno formAluno)
+        {
+            InitializeComponent();
+            _idAluno = idAluno;
+            _idTurma = idTurma;
+            _data = data;
+            _formAluno = formAluno;  
         }
     }
 }

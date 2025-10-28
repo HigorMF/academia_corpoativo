@@ -164,6 +164,7 @@
             Controls.Add(lblID_Aluno);
             Name = "Frequencia";
             Text = "Frequencia";
+//            Load += Frequencia_Load;
             ResumeLayout(false);
             PerformLayout();
         }
