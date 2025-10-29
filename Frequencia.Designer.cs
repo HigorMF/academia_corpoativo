@@ -150,7 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(412, 477);
+            ClientSize = new Size(484, 477);
             Controls.Add(btnOK);
             Controls.Add(mtbSaida);
             Controls.Add(mtbEntrada);

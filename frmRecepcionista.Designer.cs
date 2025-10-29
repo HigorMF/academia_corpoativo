@@ -119,6 +119,7 @@
             Controls.Add(panel2);
             Controls.Add(btnCadastro);
             Controls.Add(btnCalendario);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "frmRecepcionista";
             Text = "frmRecepcionista";
             panel2.ResumeLayout(false);

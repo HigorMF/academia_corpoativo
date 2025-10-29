@@ -40,43 +40,43 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(68, 99);
             label1.Name = "label1";
-            label1.Size = new Size(52, 15);
+            label1.Size = new Size(72, 21);
             label1.TabIndex = 0;
             label1.Text = "Horário:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(68, 176);
             label2.Name = "label2";
-            label2.Size = new Size(69, 15);
+            label2.Size = new Size(97, 21);
             label2.TabIndex = 1;
             label2.Text = "Data Início:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(68, 266);
             label3.Name = "label3";
-            label3.Size = new Size(59, 15);
+            label3.Size = new Size(82, 21);
             label3.TabIndex = 2;
             label3.Text = "Data Fim:";
             // 
             // textHorario
             // 
-            textHorario.Location = new Point(124, 96);
+            textHorario.Location = new Point(182, 99);
             textHorario.Name = "textHorario";
             textHorario.Size = new Size(135, 23);
             textHorario.TabIndex = 3;
             // 
             // mtbDataInicio
             // 
-            mtbDataInicio.Location = new Point(140, 173);
+            mtbDataInicio.Location = new Point(198, 176);
             mtbDataInicio.Mask = "00/00/0000";
             mtbDataInicio.Name = "mtbDataInicio";
             mtbDataInicio.Size = new Size(119, 23);
@@ -86,7 +86,7 @@
             // 
             // mtbDataFim
             // 
-            mtbDataFim.Location = new Point(131, 263);
+            mtbDataFim.Location = new Point(189, 264);
             mtbDataFim.Mask = "00/00/0000";
             mtbDataFim.Name = "mtbDataFim";
             mtbDataFim.Size = new Size(128, 23);
@@ -96,10 +96,10 @@
             // 
             // btnOK
             // 
-            btnOK.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOK.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnOK.Location = new Point(150, 342);
             btnOK.Name = "btnOK";
-            btnOK.Size = new Size(75, 23);
+            btnOK.Size = new Size(126, 33);
             btnOK.TabIndex = 6;
             btnOK.Text = "OK";
             btnOK.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(360, 450);
+            ClientSize = new Size(777, 450);
             Controls.Add(btnOK);
             Controls.Add(mtbDataFim);
             Controls.Add(mtbDataInicio);
