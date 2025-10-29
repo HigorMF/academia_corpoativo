@@ -173,6 +173,7 @@
             Controls.Add(btnAnterior);
             Controls.Add(btProximo);
             Controls.Add(CalendarioGeral);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Calendario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calendario";

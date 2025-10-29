@@ -37,27 +37,23 @@
             // lblDia
             // 
             lblDia.AutoSize = true;
-            lblDia.Font = new Font("Monospac821 BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDia.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblDia.Location = new Point(53, 0);
             lblDia.Name = "lblDia";
-            lblDia.Size = new Size(26, 18);
+            lblDia.Size = new Size(29, 20);
             lblDia.TabIndex = 1;
             lblDia.Text = "00";
             // 
             // lblInformacao
             // 
             lblInformacao.AutoSize = true;
-            lblInformacao.Enabled = false;
+            lblInformacao.BackColor = Color.White;
+            lblInformacao.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblInformacao.Location = new Point(16, 31);
             lblInformacao.Name = "lblInformacao";
-            lblInformacao.Size = new Size(0, 15);
+            lblInformacao.Size = new Size(0, 10);
             lblInformacao.TabIndex = 2;
             lblInformacao.TextAlign = ContentAlignment.MiddleCenter;
-            lblInformacao.Click += lblInformacao_Click;
-            // 
-            // timer1
-            // 
-            timer1.Tick += timer1_Tick;
             // 
             // ControleDeDias1
             // 
@@ -77,7 +73,7 @@
         #endregion
 
         private Label lblDia;
-        private Label lblInformacao;
         private System.Windows.Forms.Timer timer1;
+        public Label lblInformacao;
     }
 }
