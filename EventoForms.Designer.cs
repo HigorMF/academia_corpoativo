@@ -32,9 +32,10 @@
             label1 = new Label();
             btoSalvar = new Button();
             label2 = new Label();
-            txtHorario = new TextBox();
+            txtSobre = new TextBox();
             label3 = new Label();
             cboProfessores = new ComboBox();
+            txtHorario = new TextBox();
             SuspendLayout();
             // 
             // txtData
@@ -68,19 +69,19 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(114, 193);
+            label2.Location = new Point(173, 194);
             label2.Name = "label2";
             label2.Size = new Size(40, 15);
             label2.TabIndex = 9;
             label2.Text = "Sobre:";
             // 
-            // txtHorario
+            // txtSobre
             // 
-            txtHorario.Font = new Font("Monospac821 BT", 12F);
-            txtHorario.Location = new Point(114, 220);
-            txtHorario.Name = "txtHorario";
-            txtHorario.Size = new Size(139, 27);
-            txtHorario.TabIndex = 10;
+            txtSobre.Font = new Font("Monospac821 BT", 12F);
+            txtSobre.Location = new Point(173, 221);
+            txtSobre.Name = "txtSobre";
+            txtSobre.Size = new Size(139, 27);
+            txtSobre.TabIndex = 10;
             // 
             // label3
             // 
@@ -99,14 +100,23 @@
             cboProfessores.Size = new Size(121, 23);
             cboProfessores.TabIndex = 14;
             // 
+            // txtHorario
+            // 
+            txtHorario.Font = new Font("Monospac821 BT", 12F);
+            txtHorario.Location = new Point(371, 147);
+            txtHorario.Name = "txtHorario";
+            txtHorario.Size = new Size(139, 27);
+            txtHorario.TabIndex = 15;
+            // 
             // EventoForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(651, 294);
+            Controls.Add(txtHorario);
             Controls.Add(cboProfessores);
             Controls.Add(label3);
-            Controls.Add(txtHorario);
+            Controls.Add(txtSobre);
             Controls.Add(label2);
             Controls.Add(btoSalvar);
             Controls.Add(label1);
@@ -123,8 +133,9 @@
         private Label label1;
         private Button btoSalvar;
         private Label label2;
-        private TextBox txtHorario;
+        private TextBox txtSobre;
         private Label label3;
         private ComboBox cboProfessores;
+        private TextBox txtHorario;
     }
 }

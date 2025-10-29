@@ -20,7 +20,7 @@ namespace academia_corpoativo
         {
             InitializeComponent();
             CarregarProfessores();
-        
+
         }
 
         private void EventoForms_Load(object sender, EventArgs e)
@@ -34,15 +34,20 @@ namespace academia_corpoativo
 
             MySqlConnection conn = new MySqlConnection(connString);
             conn.Open();
-            String sql = "INSERT INTO agendamento (data_agendada, sobre) VALUES (@data_agendada, @sobre)";
+            String sql = "INSERT INTO agendamento (data_agendada, sobre) VALUES (?,?)";
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.AddWithValue("@data_agendada", txtData.Text);
-            cmd.Parameters.AddWithValue("@sobre", txtHorario.Text);
+            cmd.Parameters.AddWithValue("@sobre", txtSobre.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Evento salvo com sucesso!");
             conn.Dispose();
             conn.Close();
+
+            ControleDeDias1 dias = new ControleDeDias1();
+            dias.Show();
+            dias.displayInformacao();
+
         }
 
         private void CarregarProfessores()
@@ -81,3 +86,6 @@ namespace academia_corpoativo
         }
     }
 }
+
+
+

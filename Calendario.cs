@@ -25,6 +25,13 @@ namespace academia_corpoativo
         private void Calendario_Load(object sender, EventArgs e)
         {
             displayCalendar_DateChanged();
+            ControleDeDias1 dias = new ControleDeDias1();
+          
+            dias.displayInformacao();
+            dias.Show();
+            dias.BringToFront();
+            dias.Visible = true;
+            
         }
 
         private void CalendarioGeral_Paint(object sender, PaintEventArgs e)
@@ -32,7 +39,7 @@ namespace academia_corpoativo
 
         }
 
-        private void displayCalendar_DateChanged()
+        public void displayCalendar_DateChanged()
         {
             DateTime now = DateTime.Now;
             mes = now.Month;
@@ -78,7 +85,7 @@ namespace academia_corpoativo
 
             DateTime now = DateTime.Now;
 
-            DateTime startofthemonth = new DateTime(ano, mes, 1);
+             DateTime startofthemonth = new DateTime(ano, mes, 1);
 
             int days = DateTime.DaysInMonth(ano, mes);
 

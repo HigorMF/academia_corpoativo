@@ -36,6 +36,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Name = "ControleDeUso";
             Size = new Size(134, 90);
+            Load += ControleDeUso_Load_1;
             ResumeLayout(false);
         }
 
