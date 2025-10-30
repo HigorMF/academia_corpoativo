@@ -31,59 +31,67 @@ namespace academia_corpoativo
 
         private void btoSalvar_Click(object sender, EventArgs e)
         {
+            int idProfessor = Convert.ToInt32(cboProfessores.SelectedValue);
 
-            MySqlConnection conn = new MySqlConnection(connString);
-            conn.Open();
-            String sql = "INSERT INTO agendamento (data_agendada, sobre) VALUES (?,?)";
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("@data_agendada", txtData.Text);
-            cmd.Parameters.AddWithValue("@sobre", txtSobre.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Evento salvo com sucesso!");
-            conn.Dispose();
-            conn.Close();
-
-            ControleDeDias1 dias = new ControleDeDias1();
-            dias.Show();
-            dias.displayInformacao();
-
-        }
-
-        private void CarregarProfessores()
-        {
-            // SUA CONEXÃO COM O BANCO
-            string conexaoString = "server=10.37.44.29; user id = root; password=root;database=corpo_ativo;";
-
-            using (MySqlConnection conn = new MySqlConnection(conexaoString))
+            Conexao conexao = new Conexao();
+            using (var conn = conexao.GetConnection())
             {
                 try
                 {
                     conn.Open();
 
-                    // QUERY PARA PEGAR SOMENTE OS PROFESSORES
-                    string query = "SELECT nome FROM cadastro_Login WHERE tipo_login = 'Professor'";
+                    string sql = "INSERT INTO agendamento (id_cadastro_login, data_agendada, horario_agendado, sobre) VALUES (@id, @data, @hora, @sobre)";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        cboProfessores.Items.Clear(); // Limpa antes de preencher
+                    cmd.Parameters.AddWithValue("@id", idProfessor);
+                    cmd.Parameters.AddWithValue("@data", txtData.Text);
+                    cmd.Parameters.AddWithValue("@hora", txtHorario.Text);
+                    cmd.Parameters.AddWithValue("@sobre", txtSobre.Text);
 
-                        while (reader.Read())
-                        {
-                            string nomeProfessor = reader.GetString("nome");
-                            cboProfessores.Items.Add(nomeProfessor);
-                        }
-                    }
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Evento salvo com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao salvar evento: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                this.Close();
+            }
+            
+        }
+
+        private void CarregarProfessores()
+        {
+            Conexao conexao = new Conexao();
+            using (var conn = conexao.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query = "SELECT id_cadastro_login, nome FROM cadastro_login WHERE tipo_login = 'Professor'";
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    cboProfessores.DataSource = dt;
+                    cboProfessores.DisplayMember = "nome";       // O que aparece na tela
+                    cboProfessores.ValueMember = "id_cadastro_login"; // O valor interno (ID)
+                    cboProfessores.SelectedIndex = -1; // Nenhum selecionado inicialmente
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao carregar professores: " + ex.Message);
                 }
             }
-
-
         }
+
+        
     }
 }
 

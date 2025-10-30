@@ -35,7 +35,8 @@
             txtSobre = new TextBox();
             label3 = new Label();
             cboProfessores = new ComboBox();
-            txtHorario = new TextBox();
+            label4 = new Label();
+            txtHorario = new MaskedTextBox();
             SuspendLayout();
             // 
             // txtData
@@ -94,19 +95,31 @@
             // 
             // cboProfessores
             // 
+            cboProfessores.Font = new Font("Monospac821 BT", 12F);
             cboProfessores.FormattingEnabled = true;
             cboProfessores.Location = new Point(142, 147);
             cboProfessores.Name = "cboProfessores";
-            cboProfessores.Size = new Size(121, 23);
+            cboProfessores.Size = new Size(121, 27);
             cboProfessores.TabIndex = 14;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(371, 118);
+            label4.Name = "label4";
+            label4.Size = new Size(50, 15);
+            label4.TabIndex = 16;
+            label4.Text = "Horario:";
             // 
             // txtHorario
             // 
             txtHorario.Font = new Font("Monospac821 BT", 12F);
             txtHorario.Location = new Point(371, 147);
+            txtHorario.Mask = "00:00";
             txtHorario.Name = "txtHorario";
-            txtHorario.Size = new Size(139, 27);
-            txtHorario.TabIndex = 15;
+            txtHorario.Size = new Size(100, 27);
+            txtHorario.TabIndex = 17;
+            txtHorario.ValidatingType = typeof(DateTime);
             // 
             // EventoForms
             // 
@@ -114,6 +127,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(651, 294);
             Controls.Add(txtHorario);
+            Controls.Add(label4);
             Controls.Add(cboProfessores);
             Controls.Add(label3);
             Controls.Add(txtSobre);
@@ -136,6 +150,7 @@
         private TextBox txtSobre;
         private Label label3;
         private ComboBox cboProfessores;
-        private TextBox txtHorario;
+        private Label label4;
+        private MaskedTextBox txtHorario;
     }
 }

@@ -26,12 +26,8 @@ namespace academia_corpoativo
         {
             displayCalendar_DateChanged();
             ControleDeDias1 dias = new ControleDeDias1();
+
           
-            dias.displayInformacao();
-            dias.Show();
-            dias.BringToFront();
-            dias.Visible = true;
-            
         }
 
         private void CalendarioGeral_Paint(object sender, PaintEventArgs e)
@@ -45,7 +41,17 @@ namespace academia_corpoativo
             mes = now.Month;
             ano = now.Year;
 
-            string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(mes);
+            static_mes = mes.ToString();
+            static_ano = ano.ToString();
+
+            AtualizarCalendario();
+
+            CalendarioGeral.Invalidate();
+            CalendarioGeral.Update();
+            this.Refresh();
+
+
+            /*string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(mes);
             lbData.Text = monthname + " " + ano;
 
             static_mes = mes.ToString();
@@ -67,13 +73,29 @@ namespace academia_corpoativo
             {
                 ControleDeDias1 cdDias = new ControleDeDias1();
                 cdDias.Days(i);
+                cdDias.displayInformacao();
                 CalendarioGeral.Controls.Add(cdDias);
-            }
+            }*/
+
         }
 
         private void btProximo_Click(object sender, EventArgs e)
         {
-            CalendarioGeral.Controls.Clear();
+
+            mes++;
+            if (mes > 12)
+            {
+                mes = 1;
+                ano++;
+            }
+
+            static_mes = mes.ToString();
+            static_ano = ano.ToString();
+
+            AtualizarCalendario();
+
+
+            /*CalendarioGeral.Controls.Clear();
 
             mes++;
 
@@ -85,7 +107,7 @@ namespace academia_corpoativo
 
             DateTime now = DateTime.Now;
 
-             DateTime startofthemonth = new DateTime(ano, mes, 1);
+            DateTime startofthemonth = new DateTime(ano, mes, 1);
 
             int days = DateTime.DaysInMonth(ano, mes);
 
@@ -101,13 +123,27 @@ namespace academia_corpoativo
             {
                 ControleDeDias1 cdDias = new ControleDeDias1();
                 cdDias.Days(i);
+                cdDias.displayInformacao();
                 CalendarioGeral.Controls.Add(cdDias);
-            }
+            }*/
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            CalendarioGeral.Controls.Clear();
+
+            mes--;
+            if (mes < 1)
+            {
+                mes = 12;
+                ano--;
+            }
+
+            static_mes = mes.ToString();
+            static_ano = ano.ToString();
+
+            AtualizarCalendario();
+
+            /*CalendarioGeral.Controls.Clear();
 
             mes--;
 
@@ -132,8 +168,38 @@ namespace academia_corpoativo
             {
                 ControleDeDias1 cdDias = new ControleDeDias1();
                 cdDias.Days(i);
+                cdDias.displayInformacao();
+                CalendarioGeral.Controls.Add(cdDias);
+            }*/
+        }
+
+        private void AtualizarCalendario()
+        {
+            CalendarioGeral.Controls.Clear();
+
+            string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(mes);
+            lbData.Text = $"{monthname} {ano}";
+
+            DateTime startOfMonth = new DateTime(ano, mes, 1);
+            int daysInMonth = DateTime.DaysInMonth(ano, mes);
+            int startDayOfWeek = (int)startOfMonth.DayOfWeek;
+
+            for (int i = 0; i < startDayOfWeek; i++)
+            {
+                ControleDeUso cdUso = new ControleDeUso();
+                CalendarioGeral.Controls.Add(cdUso);
+            }
+
+            for (int i = 1; i <= daysInMonth; i++)
+            {
+                ControleDeDias1 cdDias = new ControleDeDias1();
+                cdDias.Days(i);
+                cdDias.displayInformacao(); // agora usa o mês/ano corretos
                 CalendarioGeral.Controls.Add(cdDias);
             }
+            CalendarioGeral.Invalidate();
+            CalendarioGeral.Update();
+            this.Refresh();
         }
     }
 }

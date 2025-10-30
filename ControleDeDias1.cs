@@ -27,42 +27,8 @@ namespace academia_corpoativo
         }
 
         private void ControleDeDias1_Load(object sender, EventArgs e)
-
         {
-          
-            string diaFormatado = lblDia.Text.PadLeft(2, '0');
-            string dataCompleta = $"{Calendario.static_ano}-{Calendario.static_mes}-{diaFormatado}";
-
-            string sql = "SELECT id_agendamento, data_agendada, sobre FROM agendamento WHERE data_agendada = '2025-10-07'";
-
-            using (MySqlConnection conn = new MySqlConnection(connString))
-            {
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                {
-                    conn.Open();
-                    cmd.Parameters.AddWithValue("@data_agendada", dataCompleta);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            if (dataCompleta.StartsWith("2025-10-07"))
-                            {
-                                lblInformacao.Text = $"{reader["sobre"]}";
-                                lblInformacao.Refresh();
-                            }
-
-                        }
-                        else
-                        {
-                            lblInformacao.Text = "Nenhum agendamento para este dia.";
-                            lblInformacao.Refresh();
-                        }
-
-                    }
-                }
-            }
-
+            displayInformacao();
         }
 
         public void Days(int numday)
@@ -81,46 +47,50 @@ namespace academia_corpoativo
 
         public void displayInformacao()
         {
-
-
-            string diaFormatado = lblDia.Text.PadLeft(2, '0');
-            string dataCompleta = $"{Calendario.static_ano} - {Calendario.static_mes} - {diaFormatado}";
-
-            string sql = "SELECT id_agendamento, data_agendada, sobre FROM agendamento WHERE data_agendada = '2025-10-07'";
-
-            using (MySqlConnection conn = new MySqlConnection(connString))
+            Conexao conexao = new Conexao();
+            using (var conn = conexao.GetConnection())
             {
-               
-                
-                
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+
+                try
                 {
-                    conn.Open();
-                    cmd.Parameters.AddWithValue("@data_agendada", dataCompleta);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            lblInformacao.Text = $"{reader["data_agendada"]}\n{reader["sobre"]}";
-                            lblInformacao.Refresh();
-                             
-                        }
-                        else
-                        {
-                            lblInformacao.Text = "Nenhum agendamento para este dia.";
-                            lblInformacao.Refresh();
-                        }
-                        lblInformacao.Enabled = true;
-                        lblInformacao.Text = "juhjg";
-                        lblInformacao.ForeColor = Color.Black;
-                        lblInformacao.AutoSize = true;
-                        this.AutoSize = true;
-                        lblInformacao.Refresh();
+                    string diaFormatado = lblDia.Text.PadLeft(2, '0');
+                    string mesFormatado = Calendario.static_mes.PadLeft(2, '0');
+                    string dataCompleta = $"{Calendario.static_ano}-{mesFormatado}-{diaFormatado}";
 
-                    }
+                    string sql = "SELECT sobre FROM agendamento WHERE data_agendada = @data_agendada";
+
+                    
+                        conn.Open();
+                        using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@data_agendada", dataCompleta);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    lblInformacao.Text = 
+                                        $"{reader["sobre"]}";
+
+                                    lblInformacao.ForeColor = Color.Black;
+                                }
+                                else
+                                {
+                                    lblInformacao.Text = ""; // sem agendamento
+                                }
+                            }
+                        }
+                    
+
+                    lblInformacao.Refresh();
                 }
-            }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro em displayInformacao: " + ex.Message);
+                    lblInformacao.Text = "";
 
+                }
+
+            }
         }
 
         public void days(int numDia)
@@ -136,10 +106,7 @@ namespace academia_corpoativo
         }
 
 
-        private void lblInformacao_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
 
