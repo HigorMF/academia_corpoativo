@@ -20,25 +20,38 @@ namespace academia_corpoativo
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            //Validação simples para evitar  campos em branco
+            if (string.IsNullOrWhiteSpace(textModalidade.Text) || string.IsNullOrWhiteSpace(textValor.Text))
+
+            {
+                MessageBox.Show("Preencha todos os campos!");
+            }
+            //Validação e conversão do valor
+            if (!Decimal.TryParse(textValor.Text, out decimal valor_modalidade))
+            {
+                MessageBox.Show("Digite um valor válido para o campo Valor!");
+                return;
+            }
+
             Conexao conexao = new Conexao();
             using (var conn = conexao.GetConnection())
             {
-                var esporte_modalidade = textModalidade.Text;
-                var valor_modalidade = textValor.Text;
+                conn.Open(); //Abrir conexão
 
-                //Adicionando código de inserção
+                string sql = "INSERT INTO modalidade (esporte_modalidade, valor_modalidade) VALUES (@esporte_modalidade, @valor_modalidade)";
+                using (var cmd = new MySqlCommand(sql, conn))
 
-                string sql = "INSERT INTO Modalidade (Nome, Valor) VALUES (@nome, @valor)";
-                using (var cmd=new MySqlCommand(sql,conn))
                 {
-                    cmd.Parameters.AddWithValue("@nome", esporte_modalidade);
-                    cmd.Parameters.AddWithValue("@valor", valor_modalidade);
+                    cmd.Parameters.AddWithValue("@esporte_modalidade", textModalidade.Text.Trim());
+                    cmd.Parameters.AddWithValue("@valor_modalidade", valor_modalidade);
+
                     cmd.ExecuteNonQuery();
                 }
-                //Mensagem
 
                 MessageBox.Show("Modalidade cadastrada com sucesso!");
             }
         }
     }
-}
+
+}   
+               

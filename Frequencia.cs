@@ -16,7 +16,7 @@ namespace academia_corpoativo
     {
 
         private int _idAluno;
-        private int _idTurma;
+        private int _idturma;
         private DateTime _data;
         private Aluno _formAluno;
 
@@ -31,13 +31,13 @@ namespace academia_corpoativo
             using (var conn = new Conexao().GetConnection())
             {
                 string Sql = @"INSERT INTO frequencia 
-                        (id_cadastro_login, id_turma, data_frequencia, entrada, saida)
-                        VALUES (@idAluno, @idTurma, @data, @entrada, @saida)";
+                        (id_cadastro_login, id_turma, data, entrada, saida)
+                        VALUES (@id_cadastro_login, @idturma, @data, @entrada, @saida)";
 
                 using (var cmd = new MySqlCommand(Sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@idAluno", _idAluno);
-                    cmd.Parameters.AddWithValue("@idTurma", _idTurma);
+                    cmd.Parameters.AddWithValue("@id_cadastro_login", _idAluno);
+                    cmd.Parameters.AddWithValue("@id_turma", _idturma);
                     cmd.Parameters.AddWithValue("@data", _data.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@entrada", mtbEntrada.Text.Trim());
                     cmd.Parameters.AddWithValue("@saida", mtbSaida.Text.Trim());
@@ -52,6 +52,7 @@ namespace academia_corpoativo
                     this.Close();
                 }
             }
+            
         }
 
 
@@ -60,7 +61,7 @@ namespace academia_corpoativo
         {
             InitializeComponent();
             _idAluno = idAluno;
-            _idTurma = idTurma;
+            _idturma = idTurma;
             _data = data;
             _formAluno = formAluno;  
         }
