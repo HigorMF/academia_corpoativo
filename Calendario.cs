@@ -45,38 +45,7 @@ namespace academia_corpoativo
             static_ano = ano.ToString();
 
             AtualizarCalendario();
-
-            CalendarioGeral.Invalidate();
-            CalendarioGeral.Update();
-            this.Refresh();
-
-
-            /*string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(mes);
-            lbData.Text = monthname + " " + ano;
-
-            static_mes = mes.ToString();
-            static_ano = ano.ToString();
-
-            DateTime startofthemonth = new DateTime(ano, mes, 1);
-
-            int days = DateTime.DaysInMonth(ano, mes);
-
-            int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
-
-            for (int i = 1; i < dayoftheweek; i++)
-            {
-                ControleDeUso cdUso = new ControleDeUso();
-                CalendarioGeral.Controls.Add(cdUso);
-            }
-
-            for (int i = 1; i <= days; i++)
-            {
-                ControleDeDias1 cdDias = new ControleDeDias1();
-                cdDias.Days(i);
-                cdDias.displayInformacao();
-                CalendarioGeral.Controls.Add(cdDias);
-            }*/
-
+     
         }
 
         private void btProximo_Click(object sender, EventArgs e)
@@ -95,37 +64,6 @@ namespace academia_corpoativo
             AtualizarCalendario();
 
 
-            /*CalendarioGeral.Controls.Clear();
-
-            mes++;
-
-            static_mes = mes.ToString();
-            static_ano = ano.ToString();
-
-            string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(mes);
-            lbData.Text = monthname + " " + ano;
-
-            DateTime now = DateTime.Now;
-
-            DateTime startofthemonth = new DateTime(ano, mes, 1);
-
-            int days = DateTime.DaysInMonth(ano, mes);
-
-            int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
-
-            for (int i = 1; i < dayoftheweek; i++)
-            {
-                ControleDeUso cdUso = new ControleDeUso();
-                CalendarioGeral.Controls.Add(cdUso);
-            }
-
-            for (int i = 1; i <= days; i++)
-            {
-                ControleDeDias1 cdDias = new ControleDeDias1();
-                cdDias.Days(i);
-                cdDias.displayInformacao();
-                CalendarioGeral.Controls.Add(cdDias);
-            }*/
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
@@ -143,37 +81,10 @@ namespace academia_corpoativo
 
             AtualizarCalendario();
 
-            /*CalendarioGeral.Controls.Clear();
-
-            mes--;
-
-            string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(mes);
-            lbData.Text = monthname + " " + ano;
-
-            DateTime now = DateTime.Now;
-
-            DateTime startofthemonth = new DateTime(ano, mes, 1);
-
-            int days = DateTime.DaysInMonth(ano, mes);
-
-            int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
-
-            for (int i = 1; i < dayoftheweek; i++)
-            {
-                ControleDeUso cdUso = new ControleDeUso();
-                CalendarioGeral.Controls.Add(cdUso);
-            }
-
-            for (int i = 1; i <= days; i++)
-            {
-                ControleDeDias1 cdDias = new ControleDeDias1();
-                cdDias.Days(i);
-                cdDias.displayInformacao();
-                CalendarioGeral.Controls.Add(cdDias);
-            }*/
+            
         }
 
-        private void AtualizarCalendario()
+        public void AtualizarCalendario()
         {
             CalendarioGeral.Controls.Clear();
 
@@ -197,9 +108,7 @@ namespace academia_corpoativo
                 cdDias.displayInformacao(); // agora usa o mês/ano corretos
                 CalendarioGeral.Controls.Add(cdDias);
             }
-            CalendarioGeral.Invalidate();
-            CalendarioGeral.Update();
-            this.Refresh();
+            
         }
     }
 }

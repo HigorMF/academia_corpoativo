@@ -14,7 +14,6 @@ namespace academia_corpoativo
 {
     public partial class EventoForms : Form
     {
-        String connString = "server=10.37.44.29; user id = root; password=root;database=corpo_ativo";
 
         public EventoForms()
         {
