@@ -30,9 +30,25 @@ namespace academia_corpoativo
         {
             using (var conn = new Conexao().GetConnection())
             {
+                conn.Open();
+
+                // 🔹 Busca o id do aluno logado (último login)
+                string queryId = "SELECT id_cadastro_login, id_turma FROM matricula ORDER BY id_matricula DESC LIMIT 1";
+
+                using (var cmdBusca = new MySqlCommand(queryId, conn))
+                using (var reader = cmdBusca.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        _idAluno = Convert.ToInt32(reader["id_cadastro_login"]);
+                        _idturma = Convert.ToInt32(reader["id_turma"]);
+                    }
+                }
+
+                // 🔹 Agora faz o INSERT normal
                 string Sql = @"INSERT INTO frequencia 
-                        (id_cadastro_login, id_turma, data, entrada, saida)
-                        VALUES (@id_cadastro_login, @idturma, @data, @entrada, @saida)";
+                    (id_cadastro_login, id_turma, data, entrada, saida)
+                    VALUES (@id_cadastro_login, @id_turma, @data, @entrada, @saida)";
 
                 using (var cmd = new MySqlCommand(Sql, conn))
                 {
@@ -42,17 +58,13 @@ namespace academia_corpoativo
                     cmd.Parameters.AddWithValue("@entrada", mtbEntrada.Text.Trim());
                     cmd.Parameters.AddWithValue("@saida", mtbSaida.Text.Trim());
 
-                    conn.Open();
                     cmd.ExecuteNonQuery();
-
-                    // Atualiza o calendário do FormAluno ✅
-                    _formAluno.AtualizarCalendario(_data);
-
-                    MessageBox.Show("Frequência registrada com sucesso!");
-                    this.Close();
                 }
+
+                _formAluno.AtualizarCalendario(_data);
+                MessageBox.Show("Frequência registrada com sucesso!");
+                this.Close();
             }
-            
         }
 
 
@@ -63,7 +75,12 @@ namespace academia_corpoativo
             _idAluno = idAluno;
             _idturma = idTurma;
             _data = data;
-            _formAluno = formAluno;  
+            _formAluno = formAluno;
+        }
+
+        private void txtID_Aluno_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace academia_corpoativo
 {
     public partial class Aluno : Form
     {
+       
         private int _idTurma;
 
         public Aluno(string nome, string matricula, string plano)
@@ -22,6 +24,8 @@ namespace academia_corpoativo
             lbNome.Text = $"Aluno: {nome}";
             lbNumeroMatricula.Text = $"Matrícula: {matricula}";
             label2.Text = $"Plano: {plano}";
+            
+
         }
 
         private void btnFrequencia_Click(object sender, EventArgs e)

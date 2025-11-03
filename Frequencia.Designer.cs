@@ -97,6 +97,7 @@
             txtID_Aluno.Name = "txtID_Aluno";
             txtID_Aluno.Size = new Size(203, 23);
             txtID_Aluno.TabIndex = 5;
+            txtID_Aluno.TextChanged += txtID_Aluno_TextChanged;
             // 
             // txtID_Turma
             // 
@@ -164,7 +165,6 @@
             Controls.Add(lblID_Aluno);
             Name = "Frequencia";
             Text = "Frequencia";
-//            Load += Frequencia_Load;
             ResumeLayout(false);
             PerformLayout();
         }
