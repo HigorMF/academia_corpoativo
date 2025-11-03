@@ -97,7 +97,6 @@
             txtID_Aluno.Name = "txtID_Aluno";
             txtID_Aluno.Size = new Size(203, 23);
             txtID_Aluno.TabIndex = 5;
-            txtID_Aluno.TextChanged += txtID_Aluno_TextChanged;
             // 
             // txtID_Turma
             // 
@@ -151,7 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(484, 477);
+            ClientSize = new Size(407, 473);
             Controls.Add(btnOK);
             Controls.Add(mtbSaida);
             Controls.Add(mtbEntrada);
@@ -165,6 +164,7 @@
             Controls.Add(lblID_Aluno);
             Name = "Frequencia";
             Text = "Frequencia";
+            Load += Frequencia_Load;
             ResumeLayout(false);
             PerformLayout();
         }
