@@ -366,3 +366,7 @@ FodyWeavers.xsd
 /Program.cs
 /Pagamento.Designer.cs
 /Pagamento.cs
+/CadastroModalidade.cs
+/Calendario.cs
+/Conexao.cs
+/ControleDeDias1.cs
