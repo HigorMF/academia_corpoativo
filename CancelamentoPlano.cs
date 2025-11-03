@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace academia_corpoativo
 {
-    public partial class CancelamentoPlano: Form
+    public partial class CancelamentoPlano : Form
     {
         public CancelamentoPlano()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
