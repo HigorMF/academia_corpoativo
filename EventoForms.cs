@@ -61,7 +61,7 @@ namespace academia_corpoativo
                 }
                 this.Close();
             }
-            
+
         }
 
         private void CarregarProfessores()
@@ -90,7 +90,10 @@ namespace academia_corpoativo
             }
         }
 
-        
+        private void txtData_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
