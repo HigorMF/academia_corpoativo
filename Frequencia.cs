@@ -36,8 +36,8 @@ namespace academia_corpoativo
 
                 using (var cmd = new MySqlCommand(Sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id_cadastro_login", txtID_Aluno);
-                    cmd.Parameters.AddWithValue("@id_turma", txtID_Turma);
+                    cmd.Parameters.AddWithValue("@id_cadastro_login", _idAluno);
+                    cmd.Parameters.AddWithValue("@id_turma", _idturma);
                     cmd.Parameters.AddWithValue("@data", _data.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@entrada", mtbEntrada.Text.Trim());
                     cmd.Parameters.AddWithValue("@saida", mtbSaida.Text.Trim());
