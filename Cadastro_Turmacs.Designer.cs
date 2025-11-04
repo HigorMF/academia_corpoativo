@@ -28,44 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            lblHorario = new Label();
+            lblDataInicio = new Label();
+            lblDataFim = new Label();
             textHorario = new TextBox();
             mtbDataInicio = new MaskedTextBox();
             mtbDataFim = new MaskedTextBox();
             btnOK = new Button();
             SuspendLayout();
             // 
-            // label1
+            // lblHorario
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(68, 99);
-            label1.Name = "label1";
-            label1.Size = new Size(72, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Horário:";
+            lblHorario.AutoSize = true;
+            lblHorario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHorario.Location = new Point(68, 101);
+            lblHorario.Name = "lblHorario";
+            lblHorario.Size = new Size(72, 21);
+            lblHorario.TabIndex = 0;
+            lblHorario.Text = "Horário:";
             // 
-            // label2
+            // lblDataInicio
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(68, 176);
-            label2.Name = "label2";
-            label2.Size = new Size(97, 21);
-            label2.TabIndex = 1;
-            label2.Text = "Data Início:";
+            lblDataInicio.AutoSize = true;
+            lblDataInicio.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDataInicio.Location = new Point(68, 174);
+            lblDataInicio.Name = "lblDataInicio";
+            lblDataInicio.Size = new Size(97, 21);
+            lblDataInicio.TabIndex = 1;
+            lblDataInicio.Text = "Data Início:";
             // 
-            // label3
+            // lblDataFim
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(68, 266);
-            label3.Name = "label3";
-            label3.Size = new Size(82, 21);
-            label3.TabIndex = 2;
-            label3.Text = "Data Fim:";
+            lblDataFim.AutoSize = true;
+            lblDataFim.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDataFim.Location = new Point(68, 266);
+            lblDataFim.Name = "lblDataFim";
+            lblDataFim.Size = new Size(82, 21);
+            lblDataFim.TabIndex = 2;
+            lblDataFim.Text = "Data Fim:";
             // 
             // textHorario
             // 
@@ -76,7 +76,7 @@
             // 
             // mtbDataInicio
             // 
-            mtbDataInicio.Location = new Point(198, 176);
+            mtbDataInicio.Location = new Point(182, 174);
             mtbDataInicio.Mask = "00/00/0000";
             mtbDataInicio.Name = "mtbDataInicio";
             mtbDataInicio.Size = new Size(119, 23);
@@ -86,7 +86,7 @@
             // 
             // mtbDataFim
             // 
-            mtbDataFim.Location = new Point(189, 264);
+            mtbDataFim.Location = new Point(182, 264);
             mtbDataFim.Mask = "00/00/0000";
             mtbDataFim.Name = "mtbDataFim";
             mtbDataFim.Size = new Size(128, 23);
@@ -97,9 +97,9 @@
             // btnOK
             // 
             btnOK.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOK.Location = new Point(150, 342);
+            btnOK.Location = new Point(197, 325);
             btnOK.Name = "btnOK";
-            btnOK.Size = new Size(126, 33);
+            btnOK.Size = new Size(91, 50);
             btnOK.TabIndex = 6;
             btnOK.Text = "OK";
             btnOK.UseVisualStyleBackColor = true;
@@ -114,9 +114,9 @@
             Controls.Add(mtbDataFim);
             Controls.Add(mtbDataInicio);
             Controls.Add(textHorario);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblDataFim);
+            Controls.Add(lblDataInicio);
+            Controls.Add(lblHorario);
             Name = "Cadastro_Turmacs";
             Text = "Cadastro_Turmacs";
             ResumeLayout(false);
@@ -125,9 +125,9 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private Label lblHorario;
+        private Label lblDataInicio;
+        private Label lblDataFim;
         private TextBox textHorario;
         private MaskedTextBox mtbDataInicio;
         private MaskedTextBox mtbDataFim;

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace academia_corpoativo
 {
-    public partial class Cancelamento: Form
+    public partial class MultaCancelamento: Form
     {
-        public Cancelamento()
+        public MultaCancelamento()
         {
             InitializeComponent();
         }
