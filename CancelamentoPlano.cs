@@ -55,17 +55,29 @@ namespace academia_corpoativo
                 {
                     conn.Open();
                     string id_cadastro_login = null;
-                    string queryLogin = "SELECT email, senha, id_cadastro_login FROM cadastro_login WHERE email = @email AND senha = @senha";
+                    string queryLogin = "SELECT * FROM cadastro_login WHERE email = @email AND senha = @senha";
                     string cadastro_login = null;
-                    
-
+                    string pagamento = null;
+                    string id_pagamento = null;
+                    string id_acessoalunoplano = null;
+                    string acessoalunoplano = null;
 
                     using (var cmd = new MySqlCommand(queryLogin, conn))
                     {
                         cmd.Parameters.AddWithValue("@email", email);
                         cmd.Parameters.AddWithValue("@senha", senha);
-                        cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
                         object result = cmd.ExecuteScalar();
+
+                        // Recuperar o id do usuário
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                id_cadastro_login = reader["id_cadastro_login"].ToString();
+                            }
+                        }
+
 
                         if (result == null)
                         {
@@ -91,47 +103,51 @@ namespace academia_corpoativo
                     {
                         try
                         {
-                            // Frequência
+                            // Frequência OK
                             using (var cmd = new MySqlCommand("DELETE FROM frequencia WHERE id_cadastro_login = @id_cadastro_login", conn, tran))
                             {
                                 cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
                                 cmd.ExecuteNonQuery();
                             }
 
-                            // AcessoAlunoPlano
-                            using (var cmd = new MySqlCommand("DELETE FROM acessoalunoplano WHERE id_cadastro_login = @id_cadastro_login", conn, tran))
-                            {
-                                cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
-                                cmd.ExecuteNonQuery();
-                            }
 
-                            // Curso livre
-                                using (var cmd = new MySqlCommand("DELETE FROM curso_livre WHERE id_cadastro_login = @id_cadastro_login", conn, tran))
-                                {
-                                cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
-                                cmd.ExecuteNonQuery();
-                            }
-
-                            // Turma
-                            using (var cmd = new MySqlCommand("DELETE FROM turma WHERE id_cadastro_login = @id_cadastro_login", conn, tran))
-                            {
-                                cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
-                                cmd.ExecuteNonQuery();
-                            }
-
-                            // Matricula
+                            // Matricula OK
                             using (var cmd = new MySqlCommand("DELETE FROM matricula WHERE id_cadastro_login = @id_cadastro_login", conn, tran))
                             {
                                 cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
                                 cmd.ExecuteNonQuery();
                             }
 
-                            // Plano
+                            // Acesso aluno plano
                             using (var cmd = new MySqlCommand("DELETE FROM plano WHERE id_cadastro_login = @id_cadastro_login", conn, tran))
                             {
                                 cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
                                 cmd.ExecuteNonQuery();
                             }
+
+                            // Plano OK
+                            using (var cmd = new MySqlCommand("DELETE FROM plano WHERE id_cadastro_login = @id_cadastro_login", conn, tran))
+                            {
+                                cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // Pagamento
+                            using (var cmd = new MySqlCommand("DELETE FROM pagamento WHERE id_pagamento = @id_pagamento", conn, tran))
+                            {
+                                cmd.Parameters.AddWithValue("@id_pagamento", id_pagamento);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                           
+
+                            // Turma O
+                            using (var cmd = new MySqlCommand("DELETE FROM turma WHERE id_cadastro_login = @id_cadastro_login", conn, tran))
+                            {
+                                cmd.Parameters.AddWithValue("@id_cadastro_login", id_cadastro_login);
+                                cmd.ExecuteNonQuery();
+                            }
+
 
                             tran.Commit();
                             MessageBox.Show("Plano cancelado e todos os dados relacionados foram excluídos com sucesso. Seu login permanece ativo.");
