@@ -93,6 +93,7 @@
             // 
             // txtID_Aluno
             // 
+            txtID_Aluno.Enabled = false;
             txtID_Aluno.Location = new Point(119, 84);
             txtID_Aluno.Name = "txtID_Aluno";
             txtID_Aluno.Size = new Size(203, 23);
@@ -100,6 +101,7 @@
             // 
             // txtID_Turma
             // 
+            txtID_Turma.Enabled = false;
             txtID_Turma.Location = new Point(119, 143);
             txtID_Turma.Name = "txtID_Turma";
             txtID_Turma.Size = new Size(195, 23);

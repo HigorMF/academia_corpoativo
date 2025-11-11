@@ -14,71 +14,33 @@ namespace academia_corpoativo
 {
     public partial class Aluno : Form
     {
-       
         private int _idTurma;
+        private int _idAluno;
 
-        public Aluno(string nome, string matricula, string plano)
+        public Aluno(string nome, string matricula, string plano, int idAluno, int idTurma)
         {
             InitializeComponent();
 
             lbNome.Text = $"Aluno: {nome}";
             lbNumeroMatricula.Text = $"Matrícula: {matricula}";
             label2.Text = $"Plano: {plano}";
-            
 
-        }
-
-        private void btnFrequencia_Click(object sender, EventArgs e)
-        {
-            // Pega a data selecionada no calendário do FormAluno
-            DateTime dataSelecionada = calendarRegistroFrequencia.SelectionStart;
-
-            // Usa as variáveis internas do FormAluno (_idAluno e _idTurma)
-            Frequencia frm = new Frequencia(
-                _idAluno,       // id do aluno recebido no login
-                _idTurma,       // id da turma do aluno
-                dataSelecionada,
-                this            // referência ao FormAluno
-            );
-
-            frm.ShowDialog();
+            _idAluno = idAluno;
+            _idTurma = idTurma;
         }
 
         private void Aluno_Load(object sender, EventArgs e)
         {
-
             try
             {
-                using (MySqlConnection con = new Conexao().GetConnection())
-                {
-                    con.Open();
-                    string query = "SELECT * FROM pagamento";
-                    MySqlDataAdapter da = new MySqlDataAdapter(query, con);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                }
+                CarregarPagamentosAluno();
+                CarregarFrequenciaAluno();
+                CarregarDatasFrequencia();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro: " + ex.Message);
+                MessageBox.Show("Erro ao carregar dados do aluno: " + ex.Message);
             }
-
-            CarregarPagamentosAluno();
-            CarregarFrequenciaAluno();
-
-        }
-
-        private int _idAluno;
-
-        public Aluno(string nome, string matricula, string plano, int idAluno)
-        {
-            InitializeComponent();
-
-            lbNome.Text = nome;
-            lbNumeroMatricula.Text = matricula;
-            label2.Text = plano;
-
-            _idAluno = idAluno;
         }
 
         private void CarregarPagamentosAluno()
@@ -110,8 +72,8 @@ namespace academia_corpoativo
                 con.Open();
 
                 string query = @"SELECT f.id_frequencia, f.data, f.entrada, f.saida, f.id_turma
-                         FROM frequencia f
-                         WHERE f.id_cadastro_login = @idAluno";
+                                 FROM frequencia f
+                                 WHERE f.id_cadastro_login = @idAluno";
 
                 var cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@idAluno", _idAluno);
@@ -129,8 +91,8 @@ namespace academia_corpoativo
             using (var con = new Conexao().GetConnection())
             {
                 con.Open();
-                string query = @"SELECT data_frequencia FROM frequencia 
-                         WHERE id_cadastro_login = @idAluno";
+                string query = @"SELECT data FROM frequencia 
+                                 WHERE id_cadastro_login = @idAluno";
 
                 var cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@idAluno", _idAluno);
@@ -139,7 +101,7 @@ namespace academia_corpoativo
                 {
                     while (reader.Read())
                     {
-                        DateTime data = Convert.ToDateTime(reader["data_frequencia"]);
+                        DateTime data = Convert.ToDateTime(reader["data"]);
                         calendarRegistroFrequencia.AddBoldedDate(data);
                     }
                 }
@@ -160,6 +122,36 @@ namespace academia_corpoativo
             login.Show();
             this.Hide();
         }
+
+        // ✅ Botão Frequência
+        private void btnFrequencia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_idAluno <= 0)
+                {
+                    MessageBox.Show("ID do aluno inválido. Verifique o login.");
+                    return;
+                }
+
+                if (_idTurma <= 0)
+                {
+                    MessageBox.Show("Este aluno ainda não está vinculado a uma turma.");
+                    return;
+                }
+
+                DateTime dataAtual = DateTime.Now;
+
+                Frequencia formFrequencia = new Frequencia(_idAluno, _idTurma, dataAtual, this);
+                formFrequencia.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao abrir o formulário de frequência: " + ex.Message);
+            }
+        }
+    
+
         private void lbNome_Click(object sender, EventArgs e)
         {
 
